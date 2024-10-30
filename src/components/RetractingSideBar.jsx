@@ -2,7 +2,9 @@
 "use client";
 
 import { Sidebar } from "flowbite-react";
-import { HiArrowSmRight, HiChartPie, HiInbox, HiShoppingBag, HiTable, HiUser, HiViewBoards } from "react-icons/hi";
+import { HiArrowSmRight, HiChartPie , HiShoppingBag, HiTable, HiUser, HiViewBoards } from "react-icons/hi";
+import {FiArchive} from "react-icons/fi"
+import { IoIosSettings } from "react-icons/io";
 
 export function Sidebar2() {
   return (
@@ -16,10 +18,8 @@ export function Sidebar2() {
           <Sidebar.Item href="#" icon={HiChartPie}>
             Dashboard
           </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiViewBoards}>
-            Kanban
-          </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiInbox}>
+          
+          <Sidebar.Item href="#" icon={FiArchive}>
             Orders
           </Sidebar.Item>
           <Sidebar.Item href="#" icon={HiUser}>
@@ -28,12 +28,13 @@ export function Sidebar2() {
           <Sidebar.Item href="#" icon={HiShoppingBag}>
             Products
           </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiArrowSmRight}>
-            Sign In
+          <Sidebar.Item href="#" icon={HiViewBoards}>
+            Reviews
           </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiTable}>
-            Sign Up
+          <Sidebar.Item href="#" icon={IoIosSettings}>
+            Settings
           </Sidebar.Item>
+         
         </Sidebar.ItemGroup>
       </Sidebar.Items>
     </Sidebar>
