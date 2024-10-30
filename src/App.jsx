@@ -7,7 +7,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-   <div className='sidebarr'>
+   <div className='fixed left-0 top-0 h-full'>
     <Sidebar2></Sidebar2>
    </div>
   )
