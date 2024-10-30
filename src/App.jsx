@@ -7,7 +7,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-   <div>
+   <div className='sidebarr'>
     <Sidebar2></Sidebar2>
    </div>
   )
