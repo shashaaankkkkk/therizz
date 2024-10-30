@@ -6,7 +6,8 @@ import { HiArrowSmRight, HiChartPie, HiInbox, HiShoppingBag, HiTable, HiUser, Hi
 
 export function Sidebar2() {
   return (
-    <Sidebar aria-label="Sidebar with logo branding example">
+
+    <Sidebar  aria-label="Sidebar with logo branding example">
       <Sidebar.Logo href="#" img="/favicon.svg" imgAlt="Flowbite logo">
         Flowbite
       </Sidebar.Logo>
@@ -19,10 +20,10 @@ export function Sidebar2() {
             Kanban
           </Sidebar.Item>
           <Sidebar.Item href="#" icon={HiInbox}>
-            Inbox
+            Orders
           </Sidebar.Item>
           <Sidebar.Item href="#" icon={HiUser}>
-            Users
+            Customers
           </Sidebar.Item>
           <Sidebar.Item href="#" icon={HiShoppingBag}>
             Products
