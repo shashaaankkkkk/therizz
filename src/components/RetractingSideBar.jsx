@@ -5,7 +5,6 @@ import {
   HiArrowSmRight,
   HiChartPie,
   HiShoppingBag,
-  HiTable,
   HiUser,
   HiViewBoards,
 } from "react-icons/hi";
@@ -15,7 +14,10 @@ import reactLogo from "../assets/admin.svg";
 
 export function Sidebar2() {
   return (
-    <Sidebar aria-label="Sidebar with logo branding example">
+    <Sidebar
+      aria-label="Sidebar with logo branding example"
+      style={{ width: "220px", backgroundColor: "white", color: "black" }} // Set the background color to white
+    >
       <Sidebar.Logo href="#" img={reactLogo}>
         Admin
       </Sidebar.Logo>

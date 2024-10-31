@@ -35,7 +35,7 @@ function Navbar() {
   };
 
   return (
-    <div className="flex flex-col bg-white p-4 shadow-md pr-8">
+    <div className="flex flex-col bg-white p-4 shadow-md pr-8 w">
       {/* Breadcrumb and Action Section */}
       <div className="flex items-center justify-between">
         {/* Dynamic Breadcrumb */}

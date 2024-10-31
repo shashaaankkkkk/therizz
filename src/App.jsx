@@ -3,11 +3,11 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import { Sidebar2 } from "./components/RetractingSideBar";
-import LoginPage from "./components/login";
-import Dashboard from "./components/dashboard";
-import ProductsPage from "./components/products";
+import LoginPage from "./components/Login";
+import Dashboard from "./components/Dashboard";
+import ProductsPage from "./components/Products";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import OrderTable from "./components/orders";;
+import OrderTable from "./components/orders";
 import Navbar from "./components/navbar";
 
 function App() {

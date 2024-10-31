@@ -4,17 +4,32 @@ const OrderTable = ({ orders }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
   // Filter orders based on search query
-  const filteredOrders = orders.filter(order =>
+  const filteredOrders = orders.filter((order) =>
     order.order.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div
+      style={{
+        padding: "20px",
+        backgroundColor: "#fff", // White background for the box
+        borderRadius: "8px", // Curved corners
+        boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)", // Subtle shadow
+        margin: "20px", // Margin around the box
+      }}
+    >
       {/* Header Section with Orders Heading and Search Bar */}
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: "20px",
+        }}
+      >
         {/* Orders Heading */}
         <h2 style={{ fontSize: "24px", fontWeight: "bold" }}>Orders</h2>
-        
+
         {/* Search Bar */}
         <input
           type="text"
