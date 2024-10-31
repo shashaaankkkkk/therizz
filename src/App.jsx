@@ -5,23 +5,28 @@ import "./App.css";
 import { Sidebar2 } from "./components/RetractingSideBar";
 import LoginPage from "./components/login";
 import Dashboard from "./components/dashboard";
-import ProductsPage from "./components/products"; // Import the ProductsPage component
+import ProductsPage from "./components/products";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import OrderTable from "./components/orders"
+import OrderTable from "./components/orders";
 import Navbar from "./components/navbar";
-
 
 function App() {
   const [count, setCount] = useState(0);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  // Create a layout component to reuse sidebar structure
+  // DashboardLayout with Sidebar and Navbar included
   const DashboardLayout = ({ children }) => (
     <div className="flex h-screen">
+      {/* Sidebar component */}
       <div className="fixed left-0 top-0 h-full">
         <Sidebar2 />
       </div>
-      <div className="flex-1 ml-64">{children}</div>
+
+      {/* Main content area with Navbar and children */}
+      <div className="flex-1 ml-64">
+        <Navbar />
+        {children}
+      </div>
     </div>
   );
 
@@ -44,49 +49,25 @@ function App() {
         {/* Products route */}
         <Route
           path="/products"
-          element={<>
+          element={
             <DashboardLayout>
-            
               <ProductsPage />
             </DashboardLayout>
-            <div className="flex h-screen">
-              {/* Sidebar component */}
-              <div className="fixed left-0 top-0 h-full">
-                <Sidebar2 />
-              </div>
-
-              {/* Main content area with Navbar and Dashboard */}
-              <div className="flex-1 ml-64">
-                <Navbar />
-                <Dashboard />
-              </div>
-            </div>
-              </>
           }
         />
+
+        {/* Orders route */}
         <Route
           path="/orders"
           element={
-            <div className="flex h-screen">
-              {/* Sidebar component */}
-              <div className="fixed left-0 top-0 h-full">
-                <Sidebar2 />
-              </div>
-
-              {/* Main content area with Navbar and OrderTable */}
-              <div className="flex-1 ml-64">
-                <Navbar />
-                <OrderTable />
-              </div>
-            </div>
+            <DashboardLayout>
+              <OrderTable />
+            </DashboardLayout>
           }
         />
-       
       </Routes>
-      
     </BrowserRouter>
   );
 }
 
 export default App;
-
