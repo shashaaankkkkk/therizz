@@ -8,7 +8,7 @@ import RecentOrders from "./RecentOrders";
 
 const Dashboard = () => {
   return (
-    <div className="p-6 space-y-8 bg-gray-100 min-h-screen">
+    <div className="p-6 space-y-8 bg-white-100 min-h-screen">
       <h1 className="text-3xl font-bold">Dashboard</h1>
 
       {/* Top row with Total Sales, Customers, Orders */}
