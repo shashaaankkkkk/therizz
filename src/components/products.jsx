@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import icons from "../utils/utils";
 
 
 const ProductsPage = () => {
@@ -61,7 +62,13 @@ const ProductsPage = () => {
         <table className="min-w-full bg-white">
           <thead>
             <tr className="border-b">
-              <th className="py-3 px-4 text-left">TL</th>
+              <th className="py-3 px-4 text-left">
+                <img
+                  src={icons.Sort}
+                  alt="Sort Icon"
+                  className="inline-block w-7 h-7"
+                />
+              </th>
               <th className="py-3 px-4 text-left">Name</th>
               <th className="py-3 px-4 text-left">SKU</th>
               <th className="py-3 px-4 text-left">Price</th>
