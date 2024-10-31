@@ -90,9 +90,12 @@ const ProductsPage = () => {
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-2xl font-semibold">Products</h1>
         <div className="flex gap-4">
-          <button className="px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800">
+          <a
+            href="/products/add"
+            className="px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800"
+          >
             Add product
-          </button>
+          </a>
           <div className="relative">
             <input
               type="text"
@@ -163,6 +166,28 @@ const ProductsPage = () => {
             ))}
           </tbody>
         </table>
+      </div>
+      {/* Pagination */}
+      <div className="flex items-center justify-center space-x-2 mt-4">
+        <button className="px-3 py-1 border rounded-md hover:bg-gray-50">
+          &lt;
+        </button>
+        <button className="px-3 py-1 border rounded-md hover:bg-gray-50">
+          1
+        </button>
+        <button className="px-3 py-1 border rounded-md hover:bg-gray-50">
+          2
+        </button>
+        <span>...</span>
+        <button className="px-3 py-1 border rounded-md hover:bg-gray-50">
+          23
+        </button>
+        <button className="px-3 py-1 border rounded-md hover:bg-gray-50">
+          24
+        </button>
+        <button className="px-3 py-1 border rounded-md hover:bg-gray-50">
+          &gt;
+        </button>
       </div>
     </div>
   );
