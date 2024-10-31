@@ -34,6 +34,14 @@ import User from "../assets/User.svg";
 import Users from "../assets/Users.svg";
 import Warning from "../assets/Warning.svg";
 import X from "../assets/X.svg";
+import image from "../assets/Image.svg";
+import image1 from "../assets/Image-1.svg";
+import image2 from "../assets/Image-2.svg";
+import image3 from "../assets/Image-3.svg";
+import image4 from "../assets/Image-4.svg";
+import image5 from "../assets/Image-5.svg";
+import image6 from "../assets/Image-6.svg";
+import image7 from "../assets/Image-7.svg";
 
 // Export as an object for easy access
 const icons = {
@@ -73,6 +81,14 @@ const icons = {
   Users,
   Warning,
   X,
+  image,
+  image1,
+  image2,
+  image3,
+  image4,
+  image5,
+  image6,
+  image7,
 };
 
 export default icons;

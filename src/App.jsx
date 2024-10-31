@@ -41,9 +41,9 @@ function App() {
           path="/dashboard"
           element={
             <>
-            <DashboardLayout>
-              <Dashboard />
-            </DashboardLayout>
+              <DashboardLayout>
+                <Dashboard />
+              </DashboardLayout>
             </>
           }
         />
@@ -63,10 +63,7 @@ function App() {
                 </div>
 
                 {/* Main content area with Navbar and Dashboard */}
-                <div className="flex-1 ml-64">
-                  <Navbar />
-                  <Dashboard />
-                </div>
+                <div className="flex-1 ml-64"></div>
               </div>
             </>
           }
@@ -77,18 +74,18 @@ function App() {
           path="/orders"
           element={
             <>
-            <div className="flex h-screen">
-              {/* Sidebar component */}
-              <div className="fixed left-0 top-0 h-full">
-                <Sidebar2 />
-              </div>
+              <div className="flex h-screen">
+                {/* Sidebar component */}
+                <div className="fixed left-0 top-0 h-full">
+                  <Sidebar2 />
+                </div>
 
-              {/* Main content area with Navbar and OrderTable */}
-              <div className="flex-1 ml-64">
-                <Navbar />
-                <OrderTable />
+                {/* Main content area with Navbar and OrderTable */}
+                <div className="flex-1 ml-64">
+                  <Navbar />
+                  <OrderTable />
+                </div>
               </div>
-            </div>
             </>
           }
         />
