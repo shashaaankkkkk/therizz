@@ -16,7 +16,7 @@ export function Sidebar2() {
   return (
     <Sidebar
       aria-label="Sidebar with logo branding example"
-      style={{ width: "220px", backgroundColor: "white", color: "black" }} // Set the background color to white
+      style={{ width: "220px" }} // Set the background color to white
     >
       <Sidebar.Logo href="#" img={reactLogo}>
         Admin
