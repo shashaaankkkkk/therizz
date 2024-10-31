@@ -7,9 +7,8 @@ import LoginPage from "./components/login";
 import Dashboard from "./components/dashboard";
 import ProductsPage from "./components/products"; // Import the ProductsPage component
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import OrderTable from "./components/orders"
+import OrderTable from "./components/orders";
 import Navbar from "./components/navbar";
-
 
 function App() {
   const [count, setCount] = useState(0);
@@ -35,38 +34,41 @@ function App() {
         <Route
           path="/dashboard"
           element={
+            <>
             <DashboardLayout>
               <Dashboard />
             </DashboardLayout>
+            </>
           }
         />
 
         {/* Products route */}
         <Route
           path="/products"
-          element={<>
-            <DashboardLayout>
-            
-              <ProductsPage />
-            </DashboardLayout>
-            <div className="flex h-screen">
-              {/* Sidebar component */}
-              <div className="fixed left-0 top-0 h-full">
-                <Sidebar2 />
-              </div>
+          element={
+            <>
+              <DashboardLayout>
+                <ProductsPage />
+              </DashboardLayout>
+              <div className="flex h-screen">
+                {/* Sidebar component */}
+                <div className="fixed left-0 top-0 h-full">
+                  <Sidebar2 />
+                </div>
 
-              {/* Main content area with Navbar and Dashboard */}
-              <div className="flex-1 ml-64">
-                <Navbar />
-                <Dashboard />
+                {/* Main content area with Navbar and Dashboard */}
+                <div className="flex-1 ml-64">
+                  <Navbar />
+                  <Dashboard />
+                </div>
               </div>
-            </div>
-              </>
+            </>
           }
         />
         <Route
           path="/orders"
           element={
+            <>
             <div className="flex h-screen">
               {/* Sidebar component */}
               <div className="fixed left-0 top-0 h-full">
@@ -79,14 +81,12 @@ function App() {
                 <OrderTable />
               </div>
             </div>
+            </>
           }
         />
-       
       </Routes>
-      
     </BrowserRouter>
   );
 }
 
 export default App;
-
