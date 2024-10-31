@@ -6,6 +6,9 @@ import { Sidebar2 } from "./components/RetractingSideBar";
 import LoginPage from "./components/login";
 import Dashboard from "./components/dashboard";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import OrderTable from "./components/orders"
+import Navbar from "./components/navbar";
+
 
 function App() {
   const [count, setCount] = useState(0);
@@ -29,18 +32,37 @@ function App() {
                 <Sidebar2 />
               </div>
 
-              {/* Dashboard component */}
+              {/* Main content area with Navbar and Dashboard */}
               <div className="flex-1 ml-64">
-                {" "}
-                {/* Adjust margin to fit sidebar */}
+                <Navbar />
                 <Dashboard />
               </div>
             </div>
           }
         />
+        <Route
+          path="/orders"
+          element={
+            <div className="flex h-screen">
+              {/* Sidebar component */}
+              <div className="fixed left-0 top-0 h-full">
+                <Sidebar2 />
+              </div>
+
+              {/* Main content area with Navbar and OrderTable */}
+              <div className="flex-1 ml-64">
+                <Navbar />
+                <OrderTable />
+              </div>
+            </div>
+          }
+        />
+       
       </Routes>
+      
     </BrowserRouter>
   );
 }
 
 export default App;
+
