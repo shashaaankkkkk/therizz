@@ -17,20 +17,24 @@ const LoginPage = () => {
     }));
   };
 
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const { email, password } = formData;
+
+  //   // Hardcoded login credentials
+  //   const validEmail = "test@gmail.com";
+  //   const validPassword = "test@1234";
+
+  //   if (email === validEmail && password === validPassword) {
+  //     setError("");
+  //     navigate("/dashboard");
+  //   } else {
+  //     setError("Invalid email or password");
+  //   }
+  // };
+
   const handleSubmit = (e) => {
-    e.preventDefault();
-    const { email, password } = formData;
-
-    // Hardcoded login credentials
-    const validEmail = "test@gmail.com";
-    const validPassword = "test@1234";
-
-    if (email === validEmail && password === validPassword) {
-      setError("");
-      navigate("/dashboard");
-    } else {
-      setError("Invalid email or password");
-    }
+    navigate("/dashboard");
   };
 
   return (
@@ -62,7 +66,7 @@ const LoginPage = () => {
               id="email"
               name="email"
               type="email"
-              required
+              // required
               value={formData.email}
               onChange={handleChange}
               className="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:border-gray-400 focus:ring-1 focus:ring-gray-400"
@@ -80,7 +84,7 @@ const LoginPage = () => {
               id="password"
               name="password"
               type="password"
-              required
+              // required
               value={formData.password}
               onChange={handleChange}
               className="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:border-gray-400 focus:ring-1 focus:ring-gray-400"

@@ -7,7 +7,7 @@ import LoginPage from "./components/login";
 import Dashboard from "./components/dashboard";
 import ProductsPage from "./components/products";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import OrderTable from "./components/orders";
+import OrderTable from "./components/orders";;
 import Navbar from "./components/navbar";
 
 function App() {
@@ -40,9 +40,11 @@ function App() {
         <Route
           path="/dashboard"
           element={
+            <>
             <DashboardLayout>
               <Dashboard />
             </DashboardLayout>
+            </>
           }
         />
 
@@ -50,9 +52,23 @@ function App() {
         <Route
           path="/products"
           element={
-            <DashboardLayout>
-              <ProductsPage />
-            </DashboardLayout>
+            <>
+              <DashboardLayout>
+                <ProductsPage />
+              </DashboardLayout>
+              <div className="flex h-screen">
+                {/* Sidebar component */}
+                <div className="fixed left-0 top-0 h-full">
+                  <Sidebar2 />
+                </div>
+
+                {/* Main content area with Navbar and Dashboard */}
+                <div className="flex-1 ml-64">
+                  <Navbar />
+                  <Dashboard />
+                </div>
+              </div>
+            </>
           }
         />
 
@@ -60,9 +76,20 @@ function App() {
         <Route
           path="/orders"
           element={
-            <DashboardLayout>
-              <OrderTable />
-            </DashboardLayout>
+            <>
+            <div className="flex h-screen">
+              {/* Sidebar component */}
+              <div className="fixed left-0 top-0 h-full">
+                <Sidebar2 />
+              </div>
+
+              {/* Main content area with Navbar and OrderTable */}
+              <div className="flex-1 ml-64">
+                <Navbar />
+                <OrderTable />
+              </div>
+            </div>
+            </>
           }
         />
       </Routes>
