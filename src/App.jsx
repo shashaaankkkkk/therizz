@@ -44,8 +44,9 @@ function App() {
         {/* Products route */}
         <Route
           path="/products"
-          element={
+          element={<>
             <DashboardLayout>
+            
               <ProductsPage />
             </DashboardLayout>
             <div className="flex h-screen">
@@ -60,6 +61,7 @@ function App() {
                 <Dashboard />
               </div>
             </div>
+              </>
           }
         />
         <Route

@@ -21,14 +21,14 @@ export function Sidebar2() {
       </Sidebar.Logo>
       <Sidebar.Items>
         <Sidebar.ItemGroup>
-          <Sidebar.Item href="#" icon={HiChartPie}>
+          <Sidebar.Item href="/dashboard" icon={HiChartPie}>
             Dashboard
           </Sidebar.Item>
 
-          <Sidebar.Item href="#" icon={HiShoppingBag}>
+          <Sidebar.Item href="/products" icon={HiShoppingBag}>
             Products
           </Sidebar.Item>
-          <Sidebar.Item href="#" icon={FiArchive}>
+          <Sidebar.Item href="/orders" icon={FiArchive}>
             Orders
           </Sidebar.Item>
           <Sidebar.Item href="#" icon={HiUser}>
