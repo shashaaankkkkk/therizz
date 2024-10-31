@@ -6,8 +6,9 @@ import { Sidebar2 } from "./components/RetractingSideBar";
 import LoginPage from "./components/login";
 import Dashboard from "./components/dashboard";
 import ProductsPage from "./components/products";
+import AddProduct from "./components/AddProduct";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import OrderTable from "./components/orders";;
+import OrderTable from "./components/orders";
 import Navbar from "./components/navbar";
 
 function App() {
@@ -21,7 +22,6 @@ function App() {
       <div className="fixed left-0 top-0 h-full">
         <Sidebar2 />
       </div>
-
       {/* Main content area with Navbar and children */}
       <div className="flex-1 ml-64">
         <Navbar />
@@ -40,32 +40,29 @@ function App() {
         <Route
           path="/dashboard"
           element={
-            <>
-              <DashboardLayout>
-                <Dashboard />
-              </DashboardLayout>
-            </>
+            <DashboardLayout>
+              <Dashboard />
+            </DashboardLayout>
           }
         />
 
-        {/* Products route */}
+        {/* Products routes */}
         <Route
           path="/products"
           element={
-            <>
-              <DashboardLayout>
-                <ProductsPage />
-              </DashboardLayout>
-              <div className="flex h-screen">
-                {/* Sidebar component */}
-                <div className="fixed left-0 top-0 h-full">
-                  <Sidebar2 />
-                </div>
+            <DashboardLayout>
+              <ProductsPage />
+            </DashboardLayout>
+          }
+        />
 
-                {/* Main content area with Navbar and Dashboard */}
-                <div className="flex-1 ml-64"></div>
-              </div>
-            </>
+        {/* Add Product route */}
+        <Route
+          path="/products/add"
+          element={
+            <DashboardLayout>
+              <AddProduct />
+            </DashboardLayout>
           }
         />
 
@@ -73,20 +70,9 @@ function App() {
         <Route
           path="/orders"
           element={
-            <>
-              <div className="flex h-screen">
-                {/* Sidebar component */}
-                <div className="fixed left-0 top-0 h-full">
-                  <Sidebar2 />
-                </div>
-
-                {/* Main content area with Navbar and OrderTable */}
-                <div className="flex-1 ml-64">
-                  <Navbar />
-                  <OrderTable />
-                </div>
-              </div>
-            </>
+            <DashboardLayout>
+              <OrderTable />
+            </DashboardLayout>
           }
         />
       </Routes>
