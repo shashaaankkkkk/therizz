@@ -4,6 +4,7 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import { Sidebar2 } from "./components/RetractingSideBar";
 import LoginPage from "./components/login";
+import Dashboard from "./components/dashboard";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -18,12 +19,22 @@ function App() {
         {/* Login page as home page */}
         <Route path="/" element={<LoginPage />} />
 
-        {/* Main layout with sidebar at /dashboard */}
+        {/* Main layout with sidebar and dashboard at /dashboard */}
         <Route
           path="/dashboard"
           element={
-            <div className="fixed left-0 top-0 h-full">
-              <Sidebar2 />
+            <div className="flex h-screen">
+              {/* Sidebar component */}
+              <div className="fixed left-0 top-0 h-full">
+                <Sidebar2 />
+              </div>
+
+              {/* Dashboard component */}
+              <div className="flex-1 ml-64">
+                {" "}
+                {/* Adjust margin to fit sidebar */}
+                <Dashboard />
+              </div>
             </div>
           }
         />
