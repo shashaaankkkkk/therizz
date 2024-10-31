@@ -5,6 +5,7 @@ import "./App.css";
 import { Sidebar2 } from "./components/RetractingSideBar";
 import LoginPage from "./components/login";
 import Dashboard from "./components/dashboard";
+import ProductsPage from "./components/products"; // Import the ProductsPage component
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import OrderTable from "./components/orders"
 import Navbar from "./components/navbar";
@@ -12,9 +13,17 @@ import Navbar from "./components/navbar";
 
 function App() {
   const [count, setCount] = useState(0);
-
-  // Add state to control whether to show login or main content
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // Create a layout component to reuse sidebar structure
+  const DashboardLayout = ({ children }) => (
+    <div className="flex h-screen">
+      <div className="fixed left-0 top-0 h-full">
+        <Sidebar2 />
+      </div>
+      <div className="flex-1 ml-64">{children}</div>
+    </div>
+  );
 
   return (
     <BrowserRouter>
@@ -22,10 +31,23 @@ function App() {
         {/* Login page as home page */}
         <Route path="/" element={<LoginPage />} />
 
-        {/* Main layout with sidebar and dashboard at /dashboard */}
+        {/* Dashboard route */}
         <Route
           path="/dashboard"
           element={
+            <DashboardLayout>
+              <Dashboard />
+            </DashboardLayout>
+          }
+        />
+
+        {/* Products route */}
+        <Route
+          path="/products"
+          element={
+            <DashboardLayout>
+              <ProductsPage />
+            </DashboardLayout>
             <div className="flex h-screen">
               {/* Sidebar component */}
               <div className="fixed left-0 top-0 h-full">

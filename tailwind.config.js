@@ -6,7 +6,11 @@ import flowbite from "flowbite-react/tailwind";
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}", flowbite.content()],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["Inter", "sans-serif"],
+      },
+    },
   },
   plugins: [flowbite.plugin()],
 };
