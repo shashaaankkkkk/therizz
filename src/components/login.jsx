@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -16,7 +19,18 @@ const LoginPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Login submitted:", formData);
+    const { email, password } = formData;
+
+    // Hardcoded login credentials
+    const validEmail = "test@gmail.com";
+    const validPassword = "test@1234";
+
+    if (email === validEmail && password === validPassword) {
+      setError("");
+      navigate("/dashboard");
+    } else {
+      setError("Invalid email or password");
+    }
   };
 
   return (
@@ -79,6 +93,8 @@ const LoginPage = () => {
           >
             Login
           </button>
+
+          {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
         </form>
       </div>
     </div>
