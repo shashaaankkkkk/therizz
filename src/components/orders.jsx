@@ -10,20 +10,25 @@ const OrderTable = ({ orders }) => {
 
   return (
     <div style={{ padding: "20px" }}>
-      {/* Search Bar */}
-      <input
-        type="text"
-        placeholder="Search"
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-        style={{
-          padding: "10px",
-          marginBottom: "20px",
-          width: "100%",
-          border: "1px solid #ddd",
-          borderRadius: "5px",
-        }}
-      />
+      {/* Header Section with Orders Heading and Search Bar */}
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
+        {/* Orders Heading */}
+        <h2 style={{ fontSize: "24px", fontWeight: "bold" }}>Orders</h2>
+        
+        {/* Search Bar */}
+        <input
+          type="text"
+          placeholder="Search"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          style={{
+            padding: "8px",
+            width: "200px",
+            border: "1px solid #ddd",
+            borderRadius: "5px",
+          }}
+        />
+      </div>
 
       {/* Order Table */}
       <table style={{ width: "100%", borderCollapse: "collapse" }}>
