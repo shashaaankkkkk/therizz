@@ -1,16 +1,24 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { Button } from "flowbite-react";
+import icons from "../../utils/utils";
+import CustomButton from "../button";
 
-const Card = ({ children, className = '' }) => (
-  <div className={`bg-white dark:bg-neutral-800 rounded-lg shadow-sm p-6 ${className}`}>
+const Card = ({ children, className = "" }) => (
+  <div
+    className={`bg-white dark:bg-neutral-800 rounded-lg shadow-sm p-6 ${className}`}
+  >
     {children}
   </div>
 );
 
 const Settings = () => {
   const [activeTab, setActiveTab] = useState("profile");
+
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+  };
 
   const renderContent = () => {
     switch (activeTab) {
@@ -24,7 +32,11 @@ const Settings = () => {
                   Profile Picture
                 </label>
                 <div className="flex items-center gap-4">
-                  <img src="/api/placeholder/64/64" alt="Profile" className="rounded-full" />
+                  <img
+                    src={icons.Pfp}
+                    alt="Profile"
+                    className="rounded-full w-10 h-10"
+                  />
                   <button
                     type="button"
                     className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700"
@@ -91,6 +103,7 @@ const Settings = () => {
                   Currency
                 </label>
                 <select className="w-full rounded-lg border-gray-200 dark:border-neutral-700 dark:bg-neutral-800">
+                  <option value="INR">INR (₹)</option>
                   <option value="USD">USD ($)</option>
                   <option value="EUR">EUR (€)</option>
                   <option value="GBP">GBP (£)</option>
@@ -102,6 +115,7 @@ const Settings = () => {
                   Timezone
                 </label>
                 <select className="w-full rounded-lg border-gray-200 dark:border-neutral-700 dark:bg-neutral-800">
+                  <option value="IST">Indian Standard Time</option>
                   <option value="UTC">UTC</option>
                   <option value="EST">Eastern Time</option>
                   <option value="PST">Pacific Time</option>
@@ -113,7 +127,9 @@ const Settings = () => {
       case "notifications":
         return (
           <Card>
-            <h3 className="text-lg font-semibold mb-4">Notification Settings</h3>
+            <h3 className="text-lg font-semibold mb-4">
+              Notification Settings
+            </h3>
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <div>
@@ -125,7 +141,11 @@ const Settings = () => {
                   </p>
                 </div>
                 <label className="relative inline-flex items-center cursor-pointer">
-                  <input type="checkbox" className="sr-only peer" defaultChecked />
+                  <input
+                    type="checkbox"
+                    className="sr-only peer"
+                    defaultChecked
+                  />
                   <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-neutral-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-neutral-600 peer-checked:bg-blue-600"></div>
                 </label>
               </div>
@@ -154,19 +174,27 @@ const Settings = () => {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-gray-800 dark:text-neutral-200">Settings</h2>
+      <h2 className="text-2xl font-bold text-gray-800 dark:text-neutral-200">
+        Settings
+      </h2>
 
       {/* Tab buttons */}
-      <div className="flex space-x-4 mb-4">
-        <Button color="gray" outline onClick={() => setActiveTab("profile")}>
-          Profile Settings
-        </Button>
-        <Button color="gray" outline onClick={() => setActiveTab("store")}>
-          Store Settings
-        </Button>
-        <Button color="gray" outline onClick={() => setActiveTab("notifications")}>
-          Notification Settings
-        </Button>
+      <div className="flex space-x-2">
+        <CustomButton
+          message="Profile Settings"
+          onClick={() => handleTabChange("profile")}
+          isActive={activeTab === "profile"}
+        />
+        <CustomButton
+          message="Store Settings"
+          onClick={() => handleTabChange("store")}
+          isActive={activeTab === "store"}
+        />
+        <CustomButton
+          message="Notification Settings"
+          onClick={() => handleTabChange("notifications")}
+          isActive={activeTab === "notifications"}
+        />
       </div>
 
       {/* Content area */}

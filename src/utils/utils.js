@@ -21,6 +21,7 @@ import Logout from "../assets/Logout.svg";
 import Menu from "../assets/Menu.svg";
 import Minus from "../assets/Minus.svg";
 import More from "../assets/More.svg";
+import Pfp from "../assets/pfp.png";
 import Product from "../assets/Product.svg";
 import Search from "../assets/Search.svg";
 import Settings from "../assets/Settings.svg";
@@ -69,6 +70,7 @@ const icons = {
   Menu,
   Minus,
   More,
+  Pfp,
   Product,
   Search,
   Settings,
