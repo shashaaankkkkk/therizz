@@ -15,7 +15,6 @@ function App() {
   const [count, setCount] = useState(0);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-<<<<<<< HEAD
   // DashboardLayout with Sidebar and Navbar included
   const DashboardLayout = ({ children }) => (
     <div className="flex h-screen">
@@ -31,113 +30,54 @@ function App() {
     </div>
   );
 
-=======
-  // Create a layout component to reuse sidebar structure
-  // const DashboardLayout = ({ children }) => (
-  //   <div className="flex h-screen">
-  //     <div className="fixed left-0 top-0 h-full w-64">
-  //       <Sidebar2 />
-  //     </div>
-  
-  //     <div className="flex-1 ml-64">
-  //       <Navbar />
-  //       <div className="max-w max-h flex items-center justify-center border border-gray-300 bg-white rounded-md"> {/* Rounded square */}
-  //       {children}
-  //     </div>
-  //     </div>
-  //   </div>
-  // );
-  
->>>>>>> f25d027 (dashboard layout change)
   return (
     // <BrowserRouter>
     //   <Routes>
     //     {/* Login page as home page */}
     //     <Route path="/" element={<LoginPage />} />
 
-<<<<<<< HEAD
-        {/* Dashboard route */}
-        <Route
-          path="/dashboard"
-          element={
-            <DashboardLayout>
-              <Dashboard />
-            </DashboardLayout>
-          }
-        />
-
-        {/* Products routes */}
-        <Route
-          path="/products"
-          element={
-            <DashboardLayout>
-              <ProductsPage />
-            </DashboardLayout>
-          }
-        />
-
-        {/* Add Product route */}
-        <Route
-          path="/products/add"
-          element={
-            <DashboardLayout>
-              <AddProduct />
-            </DashboardLayout>
-          }
-        />
-
-        {/* Orders route */}
-        <Route
-          path="/orders"
-          element={
-            <DashboardLayout>
-              <OrderTable />
-            </DashboardLayout>
-          }
-        />
-      </Routes>
-    </BrowserRouter>
-=======
     //     {/* Dashboard route */}
     //     <Route
     //       path="/dashboard"
     //       element={
-    //         <>
     //         <DashboardLayout>
-
+    //           <Dashboard />
     //         </DashboardLayout>
-    //         </>
     //       }
     //     />
 
-    //     {/* Products route */}
+    //     {/* Products routes */}
     //     <Route
     //       path="/products"
     //       element={
-    //         <>
-    //           <DashboardLayout>
-    //             <ProductsPage />
-    //           </DashboardLayout>
-             
-    //         </>
+    //         <DashboardLayout>
+    //           <ProductsPage />
+    //         </DashboardLayout>
     //       }
     //     />
+
+    //     {/* Add Product route */}
+    //     <Route
+    //       path="/products/add"
+    //       element={
+    //         <DashboardLayout>
+    //           <AddProduct />
+    //         </DashboardLayout>
+    //       }
+    //     />
+
+    //     {/* Orders route */}
     //     <Route
     //       path="/orders"
     //       element={
-    //         <>
-    //          <DashboardLayout>
-    //         <OrderTable/>
+    //         <DashboardLayout>
+    //           <OrderTable />
     //         </DashboardLayout>
-           
-    //         </>
     //       }
     //     />
     //   </Routes>
     // </BrowserRouter>
-    <><DashboardLayout></DashboardLayout>
-    </>
->>>>>>> f25d027 (dashboard layout change)
+    <DashboardLayout></DashboardLayout>
   );
 }
 
