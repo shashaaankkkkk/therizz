@@ -1,86 +1,85 @@
 import React, { useState } from "react";
 import icons from "../utils/utils";
 
-const CustomersPage = () => {
-  // Sample customer data
-  const initialCustomers = [
+const ReviewsPage = () => {
+  // Sample reviews data
+  const initialReviews = [
     {
       id: "EH",
       name: "Esther Howard",
-      email: "esther.howard@gmail.com",
-      address: "8642 Yule Street, Arvada CO 80007",
+      review:
+        "Completed the task and added the required documentation, can someone please ...",
     },
     {
       id: "WW",
       name: "Wade Warren",
-      email: "wade.warren@gmail.com",
-      address: "5331 Rexford Court, Montgomery AL 36116",
+      review:
+        "Ask CDCR San Quintin State Prison 2008. We installed Purex dispensers.",
     },
     {
       id: "BS",
       name: "Brooklyn Simmons",
-      email: "brooklyn.simmons@gmail.com",
-      address: "2325 Eastridge Circle, Moore OK 73160",
+      review:
+        "Twenty 30-second applications within half an hour is well in excess.",
     },
     {
       id: "RF",
       name: "Robert Fox",
-      email: "robert.fox@gmail.com",
-      address: "2436 Naples Avenue, Panama City FL 32405",
+      review:
+        "An interesting implication of the 2007 study concerns the use of hand sanitizers.",
     },
     {
       id: "DR",
       name: "Dianne Russell",
-      email: "dianne.russell@gmail.com",
-      address: "6095 Terry Lane, Golden CO 80403",
+      review:
+        "I found a 2007 study on effects of hand sanitizers on blood alcohol level in adults.",
     },
     {
       id: "RE",
       name: "Ralph Edwards",
-      email: "ralph.edwards@gmail.com",
-      address: "4001 Anderson Road, Nashville TN 37217",
+      review:
+        "The principal alcohol in Purell hand sanitizer (to take the most talked-about brand)",
     },
     {
       id: "TW",
       name: "Theresa Webb",
-      email: "theresa.webb@gmail.com",
-      address: "19141 Pine Ridge Circle, Anchorage AK 99516",
+      review:
+        "Alcohol based exposures through inadvertently consuming hand sanitize",
     },
     {
       id: "AM",
       name: "Arlene McCoy",
-      email: "arlene.mccoy@gmail.com",
-      address: "2613 Cottonwood Street, Anchorage AK 99508",
+      review:
+        "I'm grateful for the supportive work environment during personal challenges.",
     },
   ];
 
-  const [customers] = useState(initialCustomers);
+  const [reviews] = useState(initialReviews);
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const customersPerPage = 8;
+  const reviewsPerPage = 8;
 
-  // Filter customers based on search term
-  const filteredCustomers = customers.filter(
-    (customer) =>
-      customer.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      customer.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      customer.address.toLowerCase().includes(searchTerm.toLowerCase()),
+  // Filter reviews based on search term
+  const filteredReviews = reviews.filter(
+    (review) =>
+      review.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      review.review.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   // Calculate pagination
-  const totalPages = Math.ceil(filteredCustomers.length / customersPerPage);
-  const startIndex = (currentPage - 1) * customersPerPage;
-  const endIndex = startIndex + customersPerPage;
-  const currentCustomers = filteredCustomers.slice(startIndex, endIndex);
+  const totalPages = Math.ceil(filteredReviews.length / reviewsPerPage);
+  const startIndex = (currentPage - 1) * reviewsPerPage;
+  const endIndex = startIndex + reviewsPerPage;
+  const currentReviews = filteredReviews.slice(startIndex, endIndex);
 
   return (
     <div className="p-6 bg-white">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-semibold">Customers</h1>
+        <h1 className="text-2xl font-semibold">Reviews</h1>
         <div className="relative">
           <input
             type="text"
-            placeholder="Search customers"
+            placeholder="Search reviews"
             className="pl-10 pr-4 py-2 border rounded-lg w-64 focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -116,10 +115,7 @@ const CustomersPage = () => {
                 Name
               </th>
               <th className="px-6 py-3 text-left text-sm font-medium text-gray-500">
-                Email
-              </th>
-              <th className="px-6 py-3 text-left text-sm font-medium text-gray-500">
-                Shipping Address
+                Review
               </th>
               <th className="px-6 py-3 text-left text-sm font-medium text-gray-500">
                 Action
@@ -127,17 +123,18 @@ const CustomersPage = () => {
             </tr>
           </thead>
           <tbody>
-            {currentCustomers.map((customer) => (
-              <tr key={customer.id} className="border-b hover:bg-gray-50">
+            {currentReviews.map((review) => (
+              <tr key={review.id} className="border-b hover:bg-gray-50">
                 <td className="px-6 py-4">
                   <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
-                    {customer.id}
+                    {review.id}
                   </div>
                 </td>
-                <td className="px-6 py-6">{customer.name}</td>
-                <td className="px-6 py-6">{customer.email}</td>
-                <td className="px-6 py-6">{customer.address}</td>
+                <td className="px-6 py-6">{review.name}</td>
                 <td className="px-6 py-6">
+                  <div className="max-w-xl truncate">{review.review}</div>
+                </td>
+                <td className="px-6 py-4">
                   <button className="text-gray-400 hover:text-gray-600">
                     <svg
                       className="w-5 h-5"
@@ -189,4 +186,4 @@ const CustomersPage = () => {
   );
 };
 
-export default CustomersPage;
+export default ReviewsPage;

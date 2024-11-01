@@ -13,6 +13,7 @@ import AddProduct from "./components/AddProduct";
 import Settings from "./components/Settings/Settings";
 import LoginPage from "./components/Login";
 import CustomersPage from "./components/Customers";
+import ReviewsPage from "./components/Reviews";
 
 // Protected Route wrapper component
 const ProtectedRoute = ({ children }) => {
@@ -46,6 +47,7 @@ const App = () => {
           <Route path="settings" element={<Settings />} />
           <Route path="products/add" element={<AddProduct />} />
           <Route path="customers" element={<CustomersPage />} />
+          <Route path="reviews" element={<ReviewsPage />} />
         </Route>
 
         {/* Catch all undefined routes */}
