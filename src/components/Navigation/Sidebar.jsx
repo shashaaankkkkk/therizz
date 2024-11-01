@@ -16,7 +16,13 @@ const navigationItems = [
   { path: "/products", label: "Products", icon: Package },
   { path: "/orders", label: "Orders", icon: ShoppingCart },
   { path: "/customers", label: "Customers", icon: Users },
-  { path: "/analytics", label: "Analytics", icon: BarChart3 },
+  {
+    path: "/reviews",
+    label: "Reviews",
+    icon: () => (
+      <img src={icons.EmptyStar} className="w-6 h-6 -ml-1" alt="Reviews Icon" />
+    ),
+  },
   { path: "/settings", label: "Settings", icon: Settings },
 ];
 
@@ -84,4 +90,3 @@ const Sidebar = ({ isOpen }) => (
 );
 
 export default Sidebar;
-
