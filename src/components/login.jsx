@@ -17,26 +17,26 @@ const LoginPage = () => {
     }));
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const { email, password } = formData;
-
-  //   // Hardcoded login credentials
-  //   const validEmail = "test@gmail.com";
-  //   const validPassword = "test@1234";
-
-  //   if (email === validEmail && password === validPassword) {
-  //     // Store authentication status in localStorage
-  //     localStorage.setItem('isAuthenticated', 'true');
-  //     setError("");
-  //     navigate("/"); // Redirect to the dashboard after login
-  //   } else {
-  //     setError("Invalid email or password");
-  //   }
-  // };
   const handleSubmit = (e) => {
-    navigate("/")
+    e.preventDefault();
+    const { email, password } = formData;
+
+    // Hardcoded login credentials
+    const validEmail = "test@gmail.com";
+    const validPassword = "test@1234";
+
+    if (email === validEmail && password === validPassword) {
+      // Store authentication status in localStorage
+      localStorage.setItem('isAuthenticated', 'true');
+      setError("");
+      navigate("/"); // Redirect to the dashboard after login
+    } else {
+      setError("Invalid email or password");
+    }
   };
+  // const handleSubmit = (e) => {
+  //   navigate("/")
+  // };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <div className="bg-white rounded-lg shadow-sm w-full max-w-md p-8">
