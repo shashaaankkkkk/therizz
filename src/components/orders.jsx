@@ -95,7 +95,7 @@ const getStatusColor = (status) => {
 };
 
 // Example usage with sample data
-const App = () => {
+const OrderTable2 = () => {
   const orders = [
     {
       id: 1,
@@ -127,4 +127,4 @@ const App = () => {
   return <OrderTable orders={orders} />;
 };
 
-export default App;
+export default OrderTable2;

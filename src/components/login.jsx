@@ -17,24 +17,22 @@ const LoginPage = () => {
     }));
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const { email, password } = formData;
-
-  //   // Hardcoded login credentials
-  //   const validEmail = "test@gmail.com";
-  //   const validPassword = "test@1234";
-
-  //   if (email === validEmail && password === validPassword) {
-  //     setError("");
-  //     navigate("/dashboard");
-  //   } else {
-  //     setError("Invalid email or password");
-  //   }
-  // };
-
   const handleSubmit = (e) => {
-    navigate("/dashboard");
+    e.preventDefault();
+    const { email, password } = formData;
+
+    // Hardcoded login credentials
+    const validEmail = "test@gmail.com";
+    const validPassword = "test@1234";
+
+    if (email === validEmail && password === validPassword) {
+      // Store authentication status in localStorage
+      localStorage.setItem('isAuthenticated', 'true');
+      setError("");
+      navigate("/"); // Redirect to the dashboard after login
+    } else {
+      setError("Invalid email or password");
+    }
   };
 
   return (
@@ -66,10 +64,10 @@ const LoginPage = () => {
               id="email"
               name="email"
               type="email"
-              // required
               value={formData.email}
               onChange={handleChange}
               className="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:border-gray-400 focus:ring-1 focus:ring-gray-400"
+              required
             />
           </div>
 
@@ -84,10 +82,10 @@ const LoginPage = () => {
               id="password"
               name="password"
               type="password"
-              // required
               value={formData.password}
               onChange={handleChange}
               className="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:border-gray-400 focus:ring-1 focus:ring-gray-400"
+              required
             />
           </div>
 

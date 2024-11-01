@@ -1,84 +1,51 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import DashboardLayout from './components/DashboardLayout';
+import Dashboard from './components/pages/Dashboard';
+import ProductsPage from "./components/Products";
+import OrderTable2 from "./components/Orders";
+import AddProduct from './components/AddProduct';
+import Settings from './components/Settings/Settings';
+import LoginPage from './components/login';
 
-import LoginPage from "./components/login";
-import Dashboard from "./components/dashboard";
-import ProductsPage from "./components/products";
-import AddProduct from "./components/AddProduct";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import OrderTable from "./components/orders";
-import Navbar from "./components/navbar";
-import DashboardLayout from "./components/DashboardLayout";
-function App() {
-  const [count, setCount] = useState(0);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+// Protected Route wrapper component
+const ProtectedRoute = ({ children }) => {
+  const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
 
-  // DashboardLayout with Sidebar and Navbar included
-  // const DashboardLayout = ({ children }) => (
-  //   <div className="flex h-screen">
-  //     {/* Sidebar component */}
-  //     <div className="fixed left-0 top-0 h-full">
-  //       <Sidebar2 />
-  //     </div>
-  //     {/* Main content area with Navbar and children */}
-  //     <div className="flex-1 ml-64">
-  //       <Navbar />
-  //       {children}
-  //     </div>
-  //   </div>
-  // );
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />;
+  }
 
+  return children;
+};
+
+const App = () => {
   return (
-    // <BrowserRouter>
-    //   <Routes>
-    //     {/* Login page as home page */}
-    //     <Route path="/" element={<LoginPage />} />
+    <Router>
+      <Routes>
+        <Route path="/login" element={<LoginPage />} />
 
-    //     {/* Dashboard route */}
-    //     <Route
-    //       path="/dashboard"
-    //       element={
-    //         <DashboardLayout>
-    //           <Dashboard />
-    //         </DashboardLayout>
-    //       }
-    //     />
+        {/* Protected dashboard routes */}
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <DashboardLayout />
+            </ProtectedRoute>
+          }
+        >
+          <Route index element={<Dashboard />} />
+          <Route path="products" element={<ProductsPage />} />
+          <Route path="orders" element={<OrderTable2 />} />
+          <Route path="settings" element={<Settings />} />
+          <Route path="products/add" element={<AddProduct />} />
+        </Route>
 
-    //     {/* Products routes */}
-    //     <Route
-    //       path="/products"
-    //       element={
-    //         <DashboardLayout>
-    //           <ProductsPage />
-    //         </DashboardLayout>
-    //       }
-    //     />
-
-    //     {/* Add Product route */}
-    //     <Route
-    //       path="/products/add"
-    //       element={
-    //         <DashboardLayout>
-    //           <AddProduct />
-    //         </DashboardLayout>
-    //       }
-    //     />
-
-    //     {/* Orders route */}
-    //     <Route
-    //       path="/orders"
-    //       element={
-    //         <DashboardLayout>
-    //           <OrderTable />
-    //         </DashboardLayout>
-    //       }
-    //     />
-    //   </Routes>
-    // </BrowserRouter>
-    <DashboardLayout></DashboardLayout>
+        {/* Catch all undefined routes */}
+        <Route path="*" element={<Navigate to="/login" replace />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
