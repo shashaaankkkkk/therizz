@@ -7,13 +7,11 @@ import {
 } from "react-router-dom";
 import DashboardLayout from "./components/DashboardLayout";
 import Dashboard from "./components/pages/Dashboard";
-import ProductsPage from "./components/Products";
+import ProductsPage from "./components/products";
 import OrderTable2 from "./components/orders";
 import AddProduct from "./components/AddProduct";
 import Settings from "./components/Settings/Settings";
-import LoginPage from "./components/Login";
-import CustomersPage from "./components/Customers";
-import ReviewsPage from "./components/Reviews";
+import LoginPage from "./components/login";
 
 // Protected Route wrapper component
 const ProtectedRoute = ({ children }) => {
@@ -46,8 +44,6 @@ const App = () => {
           <Route path="orders" element={<OrderTable2 />} />
           <Route path="settings" element={<Settings />} />
           <Route path="products/add" element={<AddProduct />} />
-          <Route path="customers" element={<CustomersPage />} />
-          <Route path="reviews" element={<ReviewsPage />} />
         </Route>
 
         {/* Catch all undefined routes */}
