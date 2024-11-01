@@ -1,24 +1,25 @@
 import React, { useState } from "react";
+import icons from "../utils/utils";
 
 const OrderTable = ({ orders }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
   // Filter orders based on search query
   const filteredOrders = orders.filter((order) =>
-    order.order.toLowerCase().includes(searchQuery.toLowerCase())
+    order.order.toLowerCase().includes(searchQuery.toLowerCase()),
   );
 
   return (
     <div
       style={{
         padding: "20px",
-        backgroundColor: "#fff", // White background for the box
-        borderRadius: "8px", // Curved corners
-        boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)", // Subtle shadow
-        margin: "20px", // Margin around the box
+        backgroundColor: "#fff",
+        borderRadius: "8px",
+        boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
+        margin: "20px",
       }}
     >
-      {/* Header Section with Orders Heading and Search Bar */}
+      {/* Header Section */}
       <div
         style={{
           display: "flex",
@@ -27,10 +28,7 @@ const OrderTable = ({ orders }) => {
           marginBottom: "20px",
         }}
       >
-        {/* Orders Heading */}
         <h2 style={{ fontSize: "24px", fontWeight: "bold" }}>Orders</h2>
-
-        {/* Search Bar */}
         <input
           type="text"
           placeholder="Search"
@@ -49,28 +47,98 @@ const OrderTable = ({ orders }) => {
       <table style={{ width: "100%", borderCollapse: "collapse" }}>
         <thead>
           <tr>
-            <th style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>Image</th>
-            <th style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>Order</th>
-            <th style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>Date</th>
-            <th style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>Total</th>
-            <th style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>Status</th>
-            <th style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>Action</th>
+            <th style={{ padding: "15px", borderBottom: "1px solid #ddd" }}>
+              <img
+                src={icons.Sort}
+                alt="Sort Icon"
+                className="inline-block w-7 h-7"
+              />
+            </th>
+            <th style={{ padding: "15px", borderBottom: "1px solid #ddd" }}>
+              Order
+            </th>
+            <th style={{ padding: "15px", borderBottom: "1px solid #ddd" }}>
+              Date
+            </th>
+            <th style={{ padding: "15px", borderBottom: "1px solid #ddd" }}>
+              Total
+            </th>
+            <th style={{ padding: "15px", borderBottom: "1px solid #ddd" }}>
+              Status
+            </th>
+            <th style={{ padding: "15px", borderBottom: "1px solid #ddd" }}>
+              Action
+            </th>
           </tr>
         </thead>
         <tbody>
           {filteredOrders.map((order) => (
             <tr key={order.id}>
-              <td style={{ padding: "10px", textAlign: "center" }}>
-                <img src={order.image} alt={order.order} style={{ width: "40px", height: "40px" }} />
+              <td
+                style={{
+                  padding: "15px",
+                  textAlign: "center",
+                  verticalAlign: "middle",
+                }}
+              >
+                <img
+                  src={order.image}
+                  alt={order.order}
+                  style={{
+                    width: "60px",
+                    height: "55px",
+                    borderRadius: "50%",
+                    marginLeft: "50%", // Added margin to shift the image to the right
+                  }}
+                />
               </td>
-              <td style={{ padding: "10px", textAlign: "center" }}>{order.order}</td>
-              <td style={{ padding: "10px", textAlign: "center" }}>{order.date}</td>
-              <td style={{ padding: "10px", textAlign: "center" }}>${order.total}</td>
-              <td style={{ padding: "10px", textAlign: "center", color: getStatusColor(order.status) }}>
+              <td
+                style={{
+                  padding: "15px",
+                  textAlign: "center",
+                  verticalAlign: "middle",
+                }}
+              >
+                {order.order}
+              </td>
+              <td
+                style={{
+                  padding: "15px",
+                  textAlign: "center",
+                  verticalAlign: "middle",
+                }}
+              >
+                {order.date}
+              </td>
+              <td
+                style={{
+                  padding: "15px",
+                  textAlign: "center",
+                  verticalAlign: "middle",
+                }}
+              >
+                ${order.total}
+              </td>
+              <td
+                style={{
+                  padding: "15px",
+                  textAlign: "center",
+                  verticalAlign: "middle",
+                  color: getStatusColor(order.status),
+                }}
+              >
                 {order.status}
               </td>
-              <td style={{ padding: "10px", textAlign: "center" }}>
-                <button style={{ padding: "5px 10px", cursor: "pointer" }}>View</button>
+              <td
+                style={{
+                  padding: "15px",
+                  textAlign: "center",
+                  verticalAlign: "middle",
+                }}
+              >
+                <button style={{ padding: "5px 10px", cursor: "pointer" }}>
+                  View
+                </button>
               </td>
             </tr>
           ))}
@@ -99,24 +167,64 @@ const OrderTable2 = () => {
   const orders = [
     {
       id: 1,
-      image: "https://via.placeholder.com/40",
-      order: "Order 1",
+      image: icons.image2,
+      order: "Classic Monochrome Tees",
       date: "2024-10-01",
       total: 100.99,
       status: "Pending",
     },
     {
       id: 2,
-      image: "https://via.placeholder.com/40",
-      order: "Order 2",
+      image: icons.image,
+      order: "Sleek and Cozy Black",
       date: "2024-10-03",
-      total: 200.50,
+      total: 200.5,
       status: "Delivered",
     },
     {
       id: 3,
-      image: "https://via.placeholder.com/40",
-      order: "Order 3",
+      image: icons.image6,
+      order: "Elegant Ebony Sweatshirts",
+      date: "2024-10-05",
+      total: 300.75,
+      status: "Cancelled",
+    },
+    {
+      id: 4,
+      image: icons.image7,
+      order: "MOCKUP Black",
+      date: "2024-10-05",
+      total: 300.75,
+      status: "Cancelled",
+    },
+    {
+      id: 5,
+      image: icons.image1,
+      order: "Raw Black T-Shirt Lineup",
+      date: "2024-10-05",
+      total: 300.75,
+      status: "Cancelled",
+    },
+    {
+      id: 6,
+      image: icons.image3,
+      order: "Monochromatic Wardrobe",
+      date: "2024-10-05",
+      total: 300.75,
+      status: "Cancelled",
+    },
+    {
+      id: 7,
+      image: icons.image4,
+      order: "Essential Neutrals",
+      date: "2024-10-05",
+      total: 300.75,
+      status: "Cancelled",
+    },
+    {
+      id: 8,
+      image: icons.image5,
+      order: "UTRAANET Black",
       date: "2024-10-05",
       total: 300.75,
       status: "Cancelled",

@@ -1,5 +1,6 @@
 import AddToCart from "../assets/Add to cart.svg";
 import Add from "../assets/Add.svg";
+import Admin from "../assets/admin.svg";
 import ArrowLeft from "../assets/Arrow Left.svg";
 import ArrowRight from "../assets/Arrow Right.svg";
 import ArrowUp from "../assets/Arrow up.svg";
@@ -47,6 +48,7 @@ import image7 from "../assets/Image-7.svg";
 const icons = {
   AddToCart,
   Add,
+  Admin,
   ArrowLeft,
   ArrowRight,
   ArrowUp,
