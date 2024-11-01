@@ -1,16 +1,21 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import DashboardLayout from './components/DashboardLayout';
-import Dashboard from './components/pages/Dashboard';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import DashboardLayout from "./components/DashboardLayout";
+import Dashboard from "./components/pages/Dashboard";
 import ProductsPage from "./components/Products";
 import OrderTable2 from "./components/Orders";
-import AddProduct from './components/AddProduct';
-import Settings from './components/Settings/Settings';
-import LoginPage from './components/Login';
+import AddProduct from "./components/AddProduct";
+import Settings from "./components/Settings/Settings";
+import LoginPage from "./components/Login";
 
 // Protected Route wrapper component
 const ProtectedRoute = ({ children }) => {
-  const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
+  const isAuthenticated = localStorage.getItem("isAuthenticated") === "true";
 
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />;
