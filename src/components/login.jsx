@@ -17,24 +17,26 @@ const LoginPage = () => {
     }));
   };
 
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const { email, password } = formData;
+
+  //   // Hardcoded login credentials
+  //   const validEmail = "test@gmail.com";
+  //   const validPassword = "test@1234";
+
+  //   if (email === validEmail && password === validPassword) {
+  //     // Store authentication status in localStorage
+  //     localStorage.setItem('isAuthenticated', 'true');
+  //     setError("");
+  //     navigate("/"); // Redirect to the dashboard after login
+  //   } else {
+  //     setError("Invalid email or password");
+  //   }
+  // };
   const handleSubmit = (e) => {
-    e.preventDefault();
-    const { email, password } = formData;
-
-    // Hardcoded login credentials
-    const validEmail = "test@gmail.com";
-    const validPassword = "test@1234";
-
-    if (email === validEmail && password === validPassword) {
-      // Store authentication status in localStorage
-      localStorage.setItem('isAuthenticated', 'true');
-      setError("");
-      navigate("/"); // Redirect to the dashboard after login
-    } else {
-      setError("Invalid email or password");
-    }
+    navigate("/")
   };
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <div className="bg-white rounded-lg shadow-sm w-full max-w-md p-8">
@@ -67,7 +69,7 @@ const LoginPage = () => {
               value={formData.email}
               onChange={handleChange}
               className="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:border-gray-400 focus:ring-1 focus:ring-gray-400"
-              required
+
             />
           </div>
 
@@ -85,7 +87,7 @@ const LoginPage = () => {
               value={formData.password}
               onChange={handleChange}
               className="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:border-gray-400 focus:ring-1 focus:ring-gray-400"
-              required
+
             />
           </div>
 
