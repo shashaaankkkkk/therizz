@@ -6,7 +6,7 @@ import ProductsPage from "./components/Products";
 import OrderTable2 from "./components/Orders";
 import AddProduct from './components/AddProduct';
 import Settings from './components/Settings/Settings';
-import LoginPage from './components/login';
+import LoginPage from './components/Login';
 
 // Protected Route wrapper component
 const ProtectedRoute = ({ children }) => {
