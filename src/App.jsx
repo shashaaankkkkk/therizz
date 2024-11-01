@@ -2,7 +2,7 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import { Sidebar2 } from "./components/RetractingSideBar";
+
 import LoginPage from "./components/login";
 import Dashboard from "./components/dashboard";
 import ProductsPage from "./components/products";
@@ -16,19 +16,19 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   // DashboardLayout with Sidebar and Navbar included
-  const DashboardLayout = ({ children }) => (
-    <div className="flex h-screen">
-      {/* Sidebar component */}
-      <div className="fixed left-0 top-0 h-full">
-        <Sidebar2 />
-      </div>
-      {/* Main content area with Navbar and children */}
-      <div className="flex-1 ml-64">
-        <Navbar />
-        {children}
-      </div>
-    </div>
-  );
+  // const DashboardLayout = ({ children }) => (
+  //   <div className="flex h-screen">
+  //     {/* Sidebar component */}
+  //     <div className="fixed left-0 top-0 h-full">
+  //       <Sidebar2 />
+  //     </div>
+  //     {/* Main content area with Navbar and children */}
+  //     <div className="flex-1 ml-64">
+  //       <Navbar />
+  //       {children}
+  //     </div>
+  //   </div>
+  // );
 
   return (
     // <BrowserRouter>

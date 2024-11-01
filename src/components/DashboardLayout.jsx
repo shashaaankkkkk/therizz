@@ -131,7 +131,7 @@ const OrderTable = ({ orders }) => (
 
 const SalesChart = () => (
   <div className="bg-white rounded-xl border shadow-sm p-4 dark:bg-neutral-800 dark:border-neutral-700">
-    <h3 className="text-lg font-semibold text-gray-800 dark:text-neutral-200 mb-4">Sales Overview</h3>
+    <h3 className="text-lg font-semibold text-gray-800 dark:text-neutral-200 mb-4">Sales dashboard</h3>
     <div className="h-[300px]">
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart data={salesData}>
@@ -180,7 +180,7 @@ const CategoryChart = () => (
   </div>
 );
 
-const Overview = () => (
+const Dashboard = () => (
   <div className="space-y-6">
     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
       <StatCard 
@@ -308,9 +308,9 @@ const Sidebar = ({ isOpen, onClose }) => {
             <div className="space-y-1">
               <NavItem 
                 icon={Home} 
-                label="Overview" 
-                active={currentPage === 'overview'} 
-                onClick={() => setCurrentPage('overview')}
+                label="Dashboard" 
+                active={currentPage === 'Dashboard'} 
+                onClick={() => setCurrentPage('Dashboard')}
               />
               <NavItem 
                 icon={Package} 
@@ -365,7 +365,7 @@ const Sidebar = ({ isOpen, onClose }) => {
   
   const DashboardLayout = ({ children }) => {
     const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
-    const [currentPage, setCurrentPage] = React.useState('overview');
+    const [currentPage, setCurrentPage] = React.useState('dashboard');
   
     const toggleSidebar = () => {
       setIsSidebarOpen(!isSidebarOpen);
@@ -373,8 +373,8 @@ const Sidebar = ({ isOpen, onClose }) => {
   
     const getPageComponent = () => {
       switch (currentPage) {
-        case 'overview':
-          return <Overview />;
+        case 'dashboard':
+          return <Dashboard />;
         case 'products':
           return <Products />;
         case 'orders':
@@ -386,7 +386,7 @@ const Sidebar = ({ isOpen, onClose }) => {
         case 'settings':
           return <div>Settings Content</div>;
         default:
-          return <Overview />;
+          return <Dashboard />;
       }
     };
   
