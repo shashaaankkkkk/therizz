@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { FaShoppingCart, FaUserCircle, FaSearch, FaBars, FaTimes } from "react-icons/fa";
 
-const NavbarCustomer = () => {
+const UserDashboardLayout = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -56,7 +56,7 @@ const NavbarCustomer = () => {
           </div>
 
           {/* Cart Icon */}
-          <FaShoppingCart className="text-2xl text-gray-800 hover:text-blue-600 cursor-pointer" />
+          <a href="#"><FaShoppingCart className="text-2xl text-gray-800 hover:text-blue-600 cursor-pointer" /></a>
 
           {/* Profile Icon */}
           <FaUserCircle className="text-2xl text-gray-800 hover:text-blue-600 cursor-pointer" />
@@ -91,4 +91,5 @@ const NavbarCustomer = () => {
   );
 };
 
-export default NavbarCustomer;
+export default UserDashboardLayout;
+

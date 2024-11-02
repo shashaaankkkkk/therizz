@@ -19,7 +19,8 @@ import ReviewsPage from "./components/Admin/Reviews";
 import Footer from "./components/User/Footer";
 import HomePage from "./components/User/HomePage.jsx";
 import DiscountStrip from "./components/User/Discounthead.jsx";
-import NavbarCustomer from "./components/User/CustomerNavbar.jsx";
+import UserDashboardLayout from "./components/User/UserDashboardLayout.jsx";
+import CartPage from "./components/pages/CartPage.jsx";
 
 // Protected Route wrapper component
 const ProtectedRoute = ({ children }) => {
@@ -43,7 +44,8 @@ const App = () => {
         <Route path="/footer" element={<Footer />} />
         <Route path="/home-page" element={<HomePage />} />
         <Route path="/dishead" element={<DiscountStrip/>} />
-        <Route path="/navbar" element={<NavbarCustomer/>} />
+        <Route path="/navbar" element={<UserDashboardLayout/>} />
+        
         
 
         {/* Protected dashboard routes */}
