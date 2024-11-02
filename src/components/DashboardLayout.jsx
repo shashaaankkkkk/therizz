@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, Link, useLocation, useNavigate } from "react-router-dom";
 import Sidebar from "./Navigation/Sidebar";
 import { Menu, ChevronRight } from "lucide-react";
 import icons from "../utils/utils";
@@ -7,29 +7,36 @@ import icons from "../utils/utils";
 const DashboardLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate(); // Use navigate hook for programmatic navigation
 
   const getBreadcrumbs = () => {
     const path = location.pathname;
 
     if (path === "/") {
-      return ["Admin", "Dashboard"];
+      return [
+        { label: "Admin", path: "/" },
+        { label: "Dashboard", path: "/" },
+      ];
     }
 
     // Remove leading slash and split path
     const pathSegments = path.slice(1).split("/");
-    const breadcrumbs = ["Admin"];
+    const breadcrumbs = [{ label: "Admin", path: "/" }];
 
     // Handle each path segment
     pathSegments.forEach((segment, index) => {
+      // Construct the path for the link
+      const path = `/${pathSegments.slice(0, index + 1).join("/")}`;
+
       // Format the segment (capitalize first letter and replace hyphens)
       const formattedSegment =
         segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, " ");
 
       // Handle "add" specially when it's after "products"
       if (segment === "add" && pathSegments[index - 1] === "products") {
-        breadcrumbs.push("Add Product");
+        breadcrumbs.push({ label: "Add Product", path });
       } else {
-        breadcrumbs.push(formattedSegment);
+        breadcrumbs.push({ label: formattedSegment, path });
       }
     });
 
@@ -57,15 +64,22 @@ const DashboardLayout = () => {
                 <div className="flex items-center text-base ml-2">
                   {getBreadcrumbs().map((item, index) => (
                     <React.Fragment key={index}>
-                      <span
-                        className={
-                          index === 0
-                            ? "text-gray-500 dark:text-neutral-400" // Lighter color for "Admin"
-                            : "text-gray-900 dark:text-neutral-100 font-medium" // Darker color for page names
-                        }
-                      >
-                        {item}
-                      </span>
+                      {index < getBreadcrumbs().length - 1 ? (
+                        <Link
+                          to={item.path}
+                          className={
+                            index === 0
+                              ? "text-gray-500 dark:text-neutral-400" // Lighter color for "Admin"
+                              : "text-gray-900 dark:text-neutral-100 font-medium hover:underline" // Darker color for page names with underline on hover
+                          }
+                        >
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <span className="text-gray-900 dark:text-neutral-100 font-medium">
+                          {item.label}
+                        </span>
+                      )}
                       {index < getBreadcrumbs().length - 1 && (
                         <ChevronRight className="size-4 mx-2 text-gray-400 dark:text-neutral-500" />
                       )}
@@ -77,12 +91,9 @@ const DashboardLayout = () => {
                 <button
                   type="button"
                   className="p-2 text-gray-500 hover:text-gray-600 dark:text-neutral-400 dark:hover:text-neutral-300"
+                  onClick={() => navigate("/login")} // Navigate to login page on click
                 >
-                  <img
-                    src={icons.Logout}
-                    alt="notifications"
-                    className="size-7"
-                  />
+                  <img src={icons.Logout} alt="Logout" className="size-7" />
                 </button>
               </div>
             </div>
@@ -98,4 +109,3 @@ const DashboardLayout = () => {
 };
 
 export default DashboardLayout;
-
