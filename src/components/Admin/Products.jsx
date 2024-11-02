@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import icons from "../utils/utils";
+import icons from "../../utils/utils";
 
 const ProductsPage = () => {
   const [searchQuery, setSearchQuery] = useState(""); // Step 1: Add searchQuery state
