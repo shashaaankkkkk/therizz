@@ -10,6 +10,13 @@ import {
 } from "react-icons/fa";
 import icons from "../../utils/utils";
 
+const DiscountStrip = () => (
+  <div className="p-2 bg-black text-white text-center">
+    {/* Discount message or content */}
+    <p>50% off on all items! Limited time offer.</p>
+  </div>
+);
+
 const UserDashboardLayout = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -19,6 +26,9 @@ const UserDashboardLayout = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      {/* Discount Strip - Now integrated with Navbar */}
+      <DiscountStrip />
+
       <header className="w-full">
         {/* Navbar */}
         <nav className="flex items-center justify-between py-4 px-8 bg-white shadow-md">
