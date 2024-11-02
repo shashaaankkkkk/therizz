@@ -12,6 +12,8 @@ import OrderTable2 from "./components/Orders";
 import AddProduct from "./components/AddProduct";
 import Settings from "./components/Settings/Settings";
 import LoginPage from "./components/Login";
+import ForgotPasswordPage from "./components/ForgotPassword";
+import ResetPasswordPage from "./components/ResetPassword";
 import CustomersPage from "./components/Customers";
 import ReviewsPage from "./components/Reviews";
 
@@ -30,7 +32,10 @@ const App = () => {
   return (
     <Router>
       <Routes>
+        {/* Public routes */}
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+        <Route path="/reset-password" element={<ResetPasswordPage />} />
 
         {/* Protected dashboard routes */}
         <Route

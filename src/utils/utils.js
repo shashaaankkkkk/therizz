@@ -44,6 +44,8 @@ import image4 from "../assets/Image-4.svg";
 import image5 from "../assets/Image-5.svg";
 import image6 from "../assets/Image-6.svg";
 import image7 from "../assets/Image-7.svg";
+import open from "../assets/open.png";
+import closed from "../assets/closed.png";
 
 // Export as an object for easy access
 const icons = {
@@ -93,6 +95,8 @@ const icons = {
   image5,
   image6,
   image7,
+  open,
+  closed,
 };
 
 export default icons;

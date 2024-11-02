@@ -27,23 +27,21 @@ const LoginPage = () => {
 
     if (email === validEmail && password === validPassword) {
       // Store authentication status in localStorage
-      localStorage.setItem('isAuthenticated', 'true');
+      localStorage.setItem("isAuthenticated", "true");
       setError("");
       navigate("/"); // Redirect to the dashboard after login
     } else {
       setError("Invalid email or password");
     }
   };
-  // const handleSubmit = (e) => {
-  //   navigate("/")
-  // };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="bg-white rounded-lg shadow-sm w-full max-w-md p-8">
-        <div className="flex items-center justify-center gap-2 mb-8">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-gray-50 to-gray-200 p-6">
+      <div className="bg-white rounded-2xl shadow-xl w-full max-w-md p-10 border border-gray-200">
+        <div className="flex items-center justify-center gap-3 mb-10">
           <svg
             viewBox="0 0 24 24"
-            className="w-6 h-6"
+            className="w-10 h-10 text-gray-700"
             stroke="currentColor"
             fill="none"
             strokeWidth="2"
@@ -51,7 +49,9 @@ const LoginPage = () => {
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
             <circle cx="12" cy="7" r="4" />
           </svg>
-          <span className="text-xl font-medium">Admin</span>
+          <span className="text-3xl font-semibold text-gray-800">
+            Admin Login
+          </span>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -68,8 +68,8 @@ const LoginPage = () => {
               type="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:border-gray-400 focus:ring-1 focus:ring-gray-400"
-
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-gray-500 focus:ring-1 focus:ring-gray-500 transition"
+              placeholder="Enter your email"
             />
           </div>
 
@@ -86,19 +86,31 @@ const LoginPage = () => {
               type="password"
               value={formData.password}
               onChange={handleChange}
-              className="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:border-gray-400 focus:ring-1 focus:ring-gray-400"
-
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-gray-500 focus:ring-1 focus:ring-gray-500 transition"
+              placeholder="Enter your password"
             />
+          </div>
+
+          <div className="text-right">
+            <button
+              type="button"
+              onClick={() => navigate("/forgot-password")}
+              className="text-sm text-blue-600 hover:underline focus:outline-none transition"
+            >
+              Forgot Password?
+            </button>
           </div>
 
           <button
             type="submit"
-            className="w-full bg-gray-900 text-white py-2 px-4 rounded hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 transition-colors"
+            className="w-full bg-gray-900 text-white py-3 px-4 rounded-lg hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-transform transform hover:scale-105"
           >
             Login
           </button>
 
-          {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+          {error && (
+            <p className="text-red-500 text-center text-sm mt-4">{error}</p>
+          )}
         </form>
       </div>
     </div>
