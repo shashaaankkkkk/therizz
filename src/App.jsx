@@ -17,6 +17,9 @@ import ForgotPasswordPage from "./components/Admin/ForgotPassword";
 import ResetPasswordPage from "./components/Admin/ResetPassword";
 import CustomersPage from "./components/Admin/Customers";
 import ReviewsPage from "./components/Admin/Reviews";
+import HomePage from "./components/User/HomePage";
+import UserDashboardLayout from "./components/User/UserDashboardLayout";
+import FeaturedAromaRange from "./components/User/haha.jsx";
 import Footer from "./components/User/Footer";
 import HomePage from "./components/User/HomePage.jsx";
 import DiscountStrip from "./components/User/Discounthead.jsx";
@@ -65,6 +68,7 @@ const App = () => {
         {/* User Routes - All wrapped in UserDashboardLayout */}
         <Route path="/user" element={<UserDashboardLayout />}>
           <Route path="homepage" element={<HomePage />} />
+          <Route path="aroma" element={<FeaturedAromaRange />} />
           {/* Add more user routes here as needed */}
           {/* Example:
           <Route path="products" element={<UserProducts />} />
