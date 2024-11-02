@@ -18,6 +18,8 @@ import CustomersPage from "./components/Admin/Customers";
 import ReviewsPage from "./components/Admin/Reviews";
 import Footer from "./components/User/Footer";
 import HomePage from "./components/User/HomePage.jsx";
+import DiscountStrip from "./components/User/Discounthead.jsx";
+import NavbarCustomer from "./components/User/CustomerNavbar.jsx";
 
 // Protected Route wrapper component
 const ProtectedRoute = ({ children }) => {
@@ -40,6 +42,9 @@ const App = () => {
         <Route path="/reset-password" element={<ResetPasswordPage />} />
         <Route path="/footer" element={<Footer />} />
         <Route path="/home-page" element={<HomePage />} />
+        <Route path="/dishead" element={<DiscountStrip/>} />
+        <Route path="/navbar" element={<NavbarCustomer/>} />
+        
 
         {/* Protected dashboard routes */}
         <Route
