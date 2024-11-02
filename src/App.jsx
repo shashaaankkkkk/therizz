@@ -1,3 +1,4 @@
+// App.jsx
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -16,19 +17,15 @@ import ForgotPasswordPage from "./components/Admin/ForgotPassword";
 import ResetPasswordPage from "./components/Admin/ResetPassword";
 import CustomersPage from "./components/Admin/Customers";
 import ReviewsPage from "./components/Admin/Reviews";
-import Footer from "./components/User/Footer";
-import HomePage from "./components/User/HomePage.jsx";
-import DiscountStrip from "./components/User/Discounthead.jsx";
-import NavbarCustomer from "./components/User/CustomerNavbar.jsx";
+import HomePage from "./components/User/HomePage";
+import UserDashboardLayout from "./components/User/UserDashboardLayout";
 
-// Protected Route wrapper component
+// Protected Route wrapper for admin routes
 const ProtectedRoute = ({ children }) => {
   const isAuthenticated = localStorage.getItem("isAuthenticated") === "true";
-
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />;
   }
-
   return children;
 };
 
@@ -36,36 +33,45 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        {/* Public routes */}
+        {/* Default route - redirects to login */}
+        <Route path="/" element={<Navigate to="/login" replace />} />
+
+        {/* Auth Routes */}
         <Route path="/login" element={<LoginPage />} />
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
         <Route path="/reset-password" element={<ResetPasswordPage />} />
-        <Route path="/footer" element={<Footer />} />
-        <Route path="/home-page" element={<HomePage />} />
-        <Route path="/dishead" element={<DiscountStrip/>} />
-        <Route path="/navbar" element={<NavbarCustomer/>} />
-        
 
-        {/* Protected dashboard routes */}
+        {/* Protected Admin Routes */}
         <Route
-          path="/"
+          path="/admin"
           element={
             <ProtectedRoute>
               <DashboardLayout />
             </ProtectedRoute>
           }
         >
-          <Route index element={<Dashboard />} />
+          <Route path="dashboard" element={<Dashboard />} />
           <Route path="products" element={<ProductsPage />} />
-          <Route path="orders" element={<OrderTable2 />} />
-          <Route path="settings" element={<Settings />} />
           <Route path="products/add" element={<AddProduct />} />
+          <Route path="orders" element={<OrderTable2 />} />
           <Route path="customers" element={<CustomersPage />} />
           <Route path="reviews" element={<ReviewsPage />} />
-          
+          <Route path="settings" element={<Settings />} />
         </Route>
 
-        {/* Catch all undefined routes */}
+        {/* User Routes - All wrapped in UserDashboardLayout */}
+        <Route path="/user" element={<UserDashboardLayout />}>
+          <Route path="homepage" element={<HomePage />} />
+          {/* Add more user routes here as needed */}
+          {/* Example:
+          <Route path="products" element={<UserProducts />} />
+          <Route path="categories" element={<Categories />} />
+          <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
+          */}
+        </Route>
+
+        {/* Catch all undefined routes - redirect to login */}
         <Route path="*" element={<Navigate to="/login" replace />} />
         
       </Routes>
