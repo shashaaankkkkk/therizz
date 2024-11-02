@@ -17,6 +17,7 @@ import ResetPasswordPage from "./components/ResetPassword";
 import CustomersPage from "./components/Customers";
 import ReviewsPage from "./components/Reviews";
 
+
 // Protected Route wrapper component
 const ProtectedRoute = ({ children }) => {
   const isAuthenticated = localStorage.getItem("isAuthenticated") === "true";
@@ -36,6 +37,7 @@ const App = () => {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
         <Route path="/reset-password" element={<ResetPasswordPage />} />
+        
 
         {/* Protected dashboard routes */}
         <Route
@@ -53,10 +55,12 @@ const App = () => {
           <Route path="products/add" element={<AddProduct />} />
           <Route path="customers" element={<CustomersPage />} />
           <Route path="reviews" element={<ReviewsPage />} />
+          
         </Route>
 
         {/* Catch all undefined routes */}
         <Route path="*" element={<Navigate to="/login" replace />} />
+        
       </Routes>
     </Router>
   );
