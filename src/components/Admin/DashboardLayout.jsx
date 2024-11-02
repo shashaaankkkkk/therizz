@@ -1,3 +1,4 @@
+// DashboardLayout.jsx
 import React, { useState } from "react";
 import { Outlet, Link, useLocation, useNavigate } from "react-router-dom";
 import Sidebar from "../Navigation/Sidebar";
@@ -7,26 +8,33 @@ import icons from "../../utils/utils";
 const DashboardLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate(); // Use navigate hook for programmatic navigation
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("isAuthenticated");
+    navigate("/login");
+  };
 
   const getBreadcrumbs = () => {
     const path = location.pathname;
 
-    if (path === "/") {
+    if (path === "/admin/dashboard") {
       return [
-        { label: "Admin", path: "/" },
-        { label: "Dashboard", path: "/" },
+        { label: "Admin", path: "/admin/dashboard" },
+        { label: "Dashboard", path: "/admin/dashboard" },
       ];
     }
 
     // Remove leading slash and split path
     const pathSegments = path.slice(1).split("/");
-    const breadcrumbs = [{ label: "Admin", path: "/" }];
+    const breadcrumbs = [{ label: "Admin", path: "/admin/dashboard" }];
 
     // Handle each path segment
     pathSegments.forEach((segment, index) => {
+      if (index === 0) return; // Skip 'admin' segment
+
       // Construct the path for the link
-      const path = `/${pathSegments.slice(0, index + 1).join("/")}`;
+      const currentPath = `/${pathSegments.slice(0, index + 1).join("/")}`;
 
       // Format the segment (capitalize first letter and replace hyphens)
       const formattedSegment =
@@ -34,9 +42,9 @@ const DashboardLayout = () => {
 
       // Handle "add" specially when it's after "products"
       if (segment === "add" && pathSegments[index - 1] === "products") {
-        breadcrumbs.push({ label: "Add Product", path });
+        breadcrumbs.push({ label: "Add Product", path: currentPath });
       } else {
-        breadcrumbs.push({ label: formattedSegment, path });
+        breadcrumbs.push({ label: formattedSegment, path: currentPath });
       }
     });
 
@@ -69,8 +77,8 @@ const DashboardLayout = () => {
                           to={item.path}
                           className={
                             index === 0
-                              ? "text-gray-500 dark:text-neutral-400" // Lighter color for "Admin"
-                              : "text-gray-900 dark:text-neutral-100 font-medium hover:underline" // Darker color for page names with underline on hover
+                              ? "text-gray-500 dark:text-neutral-400"
+                              : "text-gray-900 dark:text-neutral-100 font-medium hover:underline"
                           }
                         >
                           {item.label}
@@ -91,7 +99,7 @@ const DashboardLayout = () => {
                 <button
                   type="button"
                   className="p-2 text-gray-500 hover:text-gray-600 dark:text-neutral-400 dark:hover:text-neutral-300"
-                  onClick={() => navigate("/login")} // Navigate to login page on click
+                  onClick={handleLogout}
                 >
                   <img src={icons.Logout} alt="Logout" className="size-7" />
                 </button>

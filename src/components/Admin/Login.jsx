@@ -1,3 +1,4 @@
+// LoginPage.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -26,10 +27,9 @@ const LoginPage = () => {
     const validPassword = "test@1234";
 
     if (email === validEmail && password === validPassword) {
-      // Store authentication status in localStorage
       localStorage.setItem("isAuthenticated", "true");
       setError("");
-      navigate("/"); // Redirect to the dashboard after login
+      navigate("/admin/dashboard"); // Updated to redirect to /admin/dashboard
     } else {
       setError("Invalid email or password");
     }
@@ -53,7 +53,6 @@ const LoginPage = () => {
             Admin Login
           </span>
         </div>
-
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label
@@ -72,7 +71,6 @@ const LoginPage = () => {
               placeholder="Enter your email"
             />
           </div>
-
           <div>
             <label
               htmlFor="password"
@@ -90,24 +88,21 @@ const LoginPage = () => {
               placeholder="Enter your password"
             />
           </div>
-
           <div className="text-right">
             <button
               type="button"
-              onClick={() => navigate("/forgot-password")}
+              onClick={() => navigate("/forgot-password")} // Updated path
               className="text-sm text-blue-600 hover:underline focus:outline-none transition"
             >
               Forgot Password?
             </button>
           </div>
-
           <button
             type="submit"
             className="w-full bg-gray-900 text-white py-3 px-4 rounded-lg hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-transform transform hover:scale-105"
           >
             Login
           </button>
-
           {error && (
             <p className="text-red-500 text-center text-sm mt-4">{error}</p>
           )}

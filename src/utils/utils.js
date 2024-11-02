@@ -18,6 +18,7 @@ import Home from "../assets/Home.svg";
 import Info from "../assets/Info.svg";
 import Key from "../assets/Key.svg";
 import Logout from "../assets/Logout.svg";
+import Logo from "../assets/logo.png";
 import Menu from "../assets/Menu.svg";
 import Minus from "../assets/Minus.svg";
 import More from "../assets/More.svg";
@@ -69,6 +70,7 @@ const icons = {
   Info,
   Key,
   Logout,
+  Logo,
   Menu,
   Minus,
   More,

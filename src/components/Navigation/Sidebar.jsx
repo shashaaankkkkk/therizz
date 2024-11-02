@@ -1,4 +1,4 @@
-// src/components/navigation/Sidebar.jsx
+// Sidebar.jsx
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
@@ -12,23 +12,24 @@ import {
 import icons from "../../utils/utils";
 
 const navigationItems = [
-  { path: "/", label: "Dashboard", icon: Home },
-  { path: "/products", label: "Products", icon: Package },
-  { path: "/orders", label: "Orders", icon: ShoppingCart },
-  { path: "/customers", label: "Customers", icon: Users },
+  { path: "/admin/dashboard", label: "Dashboard", icon: Home }, // Updated paths
+  { path: "/admin/products", label: "Products", icon: Package },
+  { path: "/admin/orders", label: "Orders", icon: ShoppingCart },
+  { path: "/admin/customers", label: "Customers", icon: Users },
   {
-    path: "/reviews",
+    path: "/admin/reviews",
     label: "Reviews",
     icon: () => (
       <img src={icons.EmptyStar} className="w-6 h-6 -ml-1" alt="Reviews Icon" />
     ),
   },
-  { path: "/settings", label: "Settings", icon: Settings },
+  { path: "/admin/settings", label: "Settings", icon: Settings },
 ];
 
 const NavItem = ({ to, label, icon: Icon }) => {
   const location = useLocation();
   const isActive = location.pathname === to;
+
   return (
     <Link
       to={to}

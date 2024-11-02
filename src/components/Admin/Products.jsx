@@ -91,7 +91,7 @@ const ProductsPage = () => {
         <h1 className="text-2xl font-semibold">Products</h1>
         <div className="flex gap-4">
           <a
-            href="/products/add"
+            href="/admin/products/add"
             className="px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800"
           >
             Add product
