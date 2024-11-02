@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import icons from "../utils/utils";
+import icons from "../../utils/utils";
 
 const OrderTable = ({ orders }) => {
   const [searchQuery, setSearchQuery] = useState("");
