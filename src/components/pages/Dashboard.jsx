@@ -1,25 +1,38 @@
-import React from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { PieChart, Pie, Cell } from 'recharts';
-import { DollarSign, ShoppingBag, Users, TrendingUp } from 'lucide-react';
-import {salesData, categoryData, recentOrders} from "../../data/MockData"
+import React from "react";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
+import { PieChart, Pie, Cell } from "recharts";
+import { DollarSign, ShoppingBag, Users, TrendingUp } from "lucide-react";
+import { salesData, categoryData, recentOrders } from "../../data/MockData";
 
 // Simple Card components implementation
-const Card = ({ children, className = '' }) => (
-  <div className={`bg-white dark:bg-neutral-800 rounded-lg shadow-sm ${className}`}>
+const Card = ({ children, className = "" }) => (
+  <div
+    className={`bg-white dark:bg-neutral-800 rounded-lg shadow-sm ${className}`}
+  >
     {children}
   </div>
 );
 
-const CardHeader = ({ className = '', ...props }) => (
+const CardHeader = ({ className = "", ...props }) => (
   <div className={`p-6 pb-0 ${className}`} {...props} />
 );
 
-const CardTitle = ({ className = '', ...props }) => (
-  <h3 className={`font-semibold text-lg text-gray-900 dark:text-white ${className}`} {...props} />
+const CardTitle = ({ className = "", ...props }) => (
+  <h3
+    className={`font-semibold text-lg text-gray-900 dark:text-white ${className}`}
+    {...props}
+  />
 );
 
-const CardContent = ({ className = '', ...props }) => (
+const CardContent = ({ className = "", ...props }) => (
   <div className={`p-6 ${className}`} {...props} />
 );
 
@@ -28,11 +41,17 @@ const StatCard = ({ title, value, icon: Icon, trend }) => (
     <CardContent className="p-6">
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-sm font-medium text-gray-600 dark:text-neutral-400">{title}</p>
-          <h3 className="text-2xl font-bold mt-1 text-gray-900 dark:text-white">{value}</h3>
+          <p className="text-sm font-medium text-gray-600 dark:text-neutral-400">
+            {title}
+          </p>
+          <h3 className="text-2xl font-bold mt-1 text-gray-900 dark:text-white">
+            {value}
+          </h3>
           {trend && (
-            <p className={`text-sm mt-1 ${trend.type === 'up' ? 'text-green-600' : 'text-red-600'}`}>
-              {trend.value}% {trend.type === 'up' ? '↑' : '↓'} from last month
+            <p
+              className={`text-sm mt-1 ${trend.type === "up" ? "text-green-600" : "text-red-600"}`}
+            >
+              {trend.value}% {trend.type === "up" ? "↑" : "↓"} from last month
             </p>
           )}
         </div>
@@ -67,8 +86,8 @@ const SalesChart = () => (
 );
 
 const CategoryChart = () => {
-  const COLORS = ['#2563eb', '#7c3aed', '#db2777', '#ea580c'];
-  
+  const COLORS = ["#2563eb", "#7c3aed", "#db2777", "#ea580c"];
+
   return (
     <Card>
       <CardHeader>
@@ -89,7 +108,10 @@ const CategoryChart = () => {
                 dataKey="value"
               >
                 {categoryData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={COLORS[index % COLORS.length]}
+                  />
                 ))}
               </Pie>
               <Tooltip />
@@ -127,12 +149,14 @@ const RecentOrdersTable = () => (
                 <td className="px-6 py-4 font-medium">{order.id}</td>
                 <td className="px-6 py-4">{order.customer}</td>
                 <td className="px-6 py-4">
-                  <span className={`px-2 py-1 rounded-full text-xs font-medium
-                    ${order.status === 'Delivered' && 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300'}
-                    ${order.status === 'Processing' && 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300'}
-                    ${order.status === 'Pending' && 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300'}
-                    ${order.status === 'Shipped' && 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300'}
-                  `}>
+                  <span
+                    className={`px-2 py-1 rounded-full text-xs font-medium
+                    ${order.status === "Delivered" && "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300"}
+                    ${order.status === "Processing" && "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300"}
+                    ${order.status === "Pending" && "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300"}
+                    ${order.status === "Shipped" && "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300"}
+                  `}
+                  >
                     {order.status}
                   </span>
                 </td>
@@ -150,33 +174,35 @@ const RecentOrdersTable = () => (
 const Dashboard = () => {
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-gray-800 dark:text-neutral-200">Dashboard</h2>
-      
+      <h2 className="text-2xl font-bold text-gray-800 dark:text-neutral-200">
+        Dashboard
+      </h2>
+
       {/* Stats Grid */}
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <StatCard
           title="Total Revenue"
           value="$28,500"
           icon={DollarSign}
-          trend={{ type: 'up', value: 12.5 }}
+          trend={{ type: "up", value: 12.5 }}
         />
         <StatCard
           title="Total Orders"
           value="1,413"
           icon={ShoppingBag}
-          trend={{ type: 'up', value: 8.2 }}
+          trend={{ type: "up", value: 8.2 }}
         />
         <StatCard
           title="Total Customers"
           value="846"
           icon={Users}
-          trend={{ type: 'up', value: 5.1 }}
+          trend={{ type: "up", value: 5.1 }}
         />
         <StatCard
           title="Conversion Rate"
           value="3.24%"
           icon={TrendingUp}
-          trend={{ type: 'down', value: 1.8 }}
+          trend={{ type: "down", value: 1.8 }}
         />
       </div>
 
@@ -193,3 +219,4 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+

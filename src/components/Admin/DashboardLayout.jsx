@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Outlet, Link, useLocation, useNavigate } from "react-router-dom";
-import Sidebar from "./Navigation/Sidebar";
+import Sidebar from "../Navigation/Sidebar";
 import { Menu, ChevronRight } from "lucide-react";
-import icons from "../utils/utils";
+import icons from "../../utils/utils";
 
 const DashboardLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);

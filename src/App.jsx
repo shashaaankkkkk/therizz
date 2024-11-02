@@ -5,18 +5,19 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import DashboardLayout from "./components/DashboardLayout";
+import DashboardLayout from "./components/Admin/DashboardLayout";
 import Dashboard from "./components/pages/Dashboard";
-import ProductsPage from "./components/Products";
-import OrderTable2 from "./components/Orders";
-import AddProduct from "./components/AddProduct";
+import ProductsPage from "./components/Admin/Products";
+import OrderTable2 from "./components/Admin/Orders";
+import AddProduct from "./components/Admin/AddProduct";
 import Settings from "./components/Settings/Settings";
-import LoginPage from "./components/Login";
-import ForgotPasswordPage from "./components/ForgotPassword";
-import ResetPasswordPage from "./components/ResetPassword";
-import CustomersPage from "./components/Customers";
-import ReviewsPage from "./components/Reviews";
-
+import LoginPage from "./components/Admin/Login";
+import ForgotPasswordPage from "./components/Admin/ForgotPassword";
+import ResetPasswordPage from "./components/Admin/ResetPassword";
+import CustomersPage from "./components/Admin/Customers";
+import ReviewsPage from "./components/Admin/Reviews";
+import Footer from "./components/User/Footer";
+import HomePage from "./components/User/HomePage.jsx";
 
 // Protected Route wrapper component
 const ProtectedRoute = ({ children }) => {
@@ -37,7 +38,8 @@ const App = () => {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
         <Route path="/reset-password" element={<ResetPasswordPage />} />
-        
+        <Route path="/footer" element={<Footer />} />
+        <Route path="/home-page" element={<HomePage />} />
 
         {/* Protected dashboard routes */}
         <Route
