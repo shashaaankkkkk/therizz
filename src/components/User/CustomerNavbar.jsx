@@ -1,47 +1,93 @@
-// Navbar.js
-import React from "react";
-import { FaShoppingCart, FaUserCircle, FaSearch } from "react-icons/fa";
+// Navbar.jsx
+import React, { useState } from "react";
+import { FaShoppingCart, FaUserCircle, FaSearch, FaBars, FaTimes } from "react-icons/fa";
 
 const NavbarCustomer = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
-    <nav className="flex items-center justify-between py-4 px-6 md:px-8 bg-white shadow-md">
-      {/* Logo */}
-      <div className="flex items-center">
-        <img src="/path-to-logo.svg" alt="Logo" className="w-8 h-8 md:w-10 md:h-10 mr-2" />
-        <span className="text-lg md:text-xl font-semibold">Ecommerce</span>
-      </div>
+    <header className="w-full">
+      {/* Navbar */}
+      <nav className="flex items-center justify-between py-4 px-8 bg-white shadow-md">
+        {/* Logo */}
+        <div className="flex items-center">
+          <img src="/path-to-logo.svg" alt="Logo" className="w-8 h-8 mr-2" />
+          <span className="text-xl font-semibold">Ecommerce</span>
+        </div>
 
-      {/* Navigation Links */}
-      <ul className="hidden md:flex space-x-8">
-        <li><a href="/" className="text-gray-800 hover:text-blue-600">Home</a></li>
-        <li>
-          <a href="/categories" className="text-gray-800 hover:text-blue-600">
-            Categories <span className="ml-1">&#x25BE;</span>
-          </a>
-        </li>
-        <li><a href="/about" className="text-gray-800 hover:text-blue-600">About</a></li>
-        <li><a href="/contact" className="text-gray-800 hover:text-blue-600">Contact</a></li>
-      </ul>
-
-      {/* Search and Icons */}
-      <div className="flex items-center space-x-4 md:space-x-6">
-        <div className="relative hidden md:block">
+        {/* Search Bar */}
+        <div className="flex-grow mx-4 relative md:hidden">
           <FaSearch className="absolute left-3 top-3 text-gray-500" />
           <input
             type="text"
             placeholder="Search products"
-            className="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 w-full max-w-xs md:max-w-sm"
+            className="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
           />
         </div>
-        <FaShoppingCart className="text-xl md:text-2xl text-gray-800 hover:text-blue-600 cursor-pointer" />
-        <FaUserCircle className="text-xl md:text-2xl text-gray-800 hover:text-blue-600 cursor-pointer" />
-      </div>
 
-      {/* Mobile Menu Button */}
-      <button className="md:hidden text-gray-800 hover:text-blue-600 focus:outline-none">
-        <FaUserCircle className="text-2xl" />
-      </button>
-    </nav>
+        {/* Navigation Links for Desktop */}
+        <div className="hidden md:flex flex-grow justify-center mx-4">
+          <ul className="flex space-x-8">
+            <li><a href="/" className="text-gray-800 hover:text-blue-600">Home</a></li>
+            <li>
+              <a href="/categories" className="text-gray-800 hover:text-blue-600">
+                Categories <span className="ml-1">&#x25BE;</span>
+              </a>
+            </li>
+            <li><a href="/about" className="text-gray-800 hover:text-blue-600">About</a></li>
+            <li><a href="/contact" className="text-gray-800 hover:text-blue-600">Contact</a></li>
+          </ul>
+        </div>
+
+        {/* Search Bar and Icons for Desktop */}
+        <div className="hidden md:flex items-center space-x-6">
+          {/* Search */}
+          <div className="relative">
+            <FaSearch className="absolute left-3 top-3 text-gray-500" />
+            <input
+              type="text"
+              placeholder="Search products"
+              className="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+            />
+          </div>
+
+          {/* Cart Icon */}
+          <FaShoppingCart className="text-2xl text-gray-800 hover:text-blue-600 cursor-pointer" />
+
+          {/* Profile Icon */}
+          <FaUserCircle className="text-2xl text-gray-800 hover:text-blue-600 cursor-pointer" />
+        </div>
+
+        {/* Hamburger Icon for Mobile Menu */}
+        <button className="md:hidden text-gray-800 focus:outline-none" onClick={toggleMobileMenu}>
+          {isMobileMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+        </button>
+      </nav>
+
+      {/* Mobile Menu */}
+      <div className={`md:hidden ${isMobileMenuOpen ? "block" : "hidden"}`}>
+        <ul className="flex flex-col space-y-4 py-4 bg-white shadow-md">
+          {/* Profile Icon at the Top Left with Padding */}
+          <div className="flex justify-start p-4">
+            <FaUserCircle className="text-3xl text-gray-800 hover:text-blue-600 cursor-pointer" />
+          </div>
+
+          {/* Navigation Links */}
+          <li><a href="/" className="text-gray-800 hover:text-blue-600">Home</a></li>
+          <li>
+            <a href="/categories" className="text-gray-800 hover:text-blue-600">
+              Categories <span className="ml-1">&#x25BE;</span>
+            </a>
+          </li>
+          <li><a href="/about" className="text-gray-800 hover:text-blue-600">About</a></li>
+          <li><a href="/contact" className="text-gray-800 hover:text-blue-600">Contact</a></li>
+        </ul>
+      </div>
+    </header>
   );
 };
 
