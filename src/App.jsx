@@ -73,7 +73,6 @@ const App = () => {
 
         {/* Catch all undefined routes - redirect to login */}
         <Route path="*" element={<Navigate to="/login" replace />} />
-        
       </Routes>
     </Router>
   );
