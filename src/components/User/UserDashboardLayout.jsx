@@ -9,7 +9,8 @@ import {
   FaTimes,
 } from "react-icons/fa";
 import icons from "../../utils/utils";
-import Footer from "../Footer.jsx";
+import Footer from "../User/Footer.jsx";
+import Newsletter from "../User/Newsletter";
 
 const DiscountStrip = () => (
   <div className="p-2 bg-black text-white text-center">
@@ -34,7 +35,7 @@ const UserDashboardLayout = () => {
         {/* Navbar */}
         <nav className="flex items-center justify-between py-4 px-8 bg-white shadow-md">
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center ml-[90px]">
             <img src={icons.Logo} alt="Logo" className="w-10 h-10 mr-2" />
             <span className="text-xl font-semibold">Ecommerce</span>
           </div>
@@ -164,6 +165,7 @@ const UserDashboardLayout = () => {
       <main className="flex-grow">
         <Outlet />
       </main>
+      <Newsletter />
       <Footer />
     </div>
   );

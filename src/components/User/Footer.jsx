@@ -2,6 +2,7 @@
 
 import React from "react";
 import { FaGithub, FaInstagram, FaYoutube } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -10,17 +11,35 @@ const Footer = () => {
         <div style={styles.section}>
           <div style={styles.logoSection}>
             <div style={styles.logoBox}>
-              <span style={styles.logoText}>E</span>
+              <span style={styles.logoText}>ඞ</span>
             </div>
-            <h4 style={styles.title}>Ecommerce</h4>
+            <h4 style={styles.title}>THE RIZZ</h4>
           </div>
           <p style={styles.description}>
-            DevCut is a YouTube channel for practical project-based learning.
+            The Rizz is an Online Shopping Store for clothes, shoes etc...
           </p>
           <div style={styles.socialIcons}>
-            <FaGithub style={styles.icon} />
-            <FaInstagram style={styles.icon} />
-            <FaYoutube style={styles.icon} />
+            <a
+              href="https://github.com/shashaaankkkkk/therizz"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub style={styles.icon} />
+            </a>
+            <a
+              href="https://www.instagram.com/the_rizz07/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaInstagram style={styles.icon} />
+            </a>
+            <a
+              href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaYoutube style={styles.icon} />
+            </a>
           </div>
         </div>
         <div style={styles.section}>
@@ -44,7 +63,14 @@ const Footer = () => {
           <ul style={styles.list}>
             <li style={styles.listItem}>My Account</li>
             <li style={styles.listItem}>Checkout</li>
-            <li style={styles.listItem}>Cart</li>
+            <li style={styles.listItem}>
+              <Link
+                to="/user/cart"
+                style={{ color: "#666", textDecoration: "none" }}
+              >
+                Cart
+              </Link>
+            </li>
           </ul>
         </div>
         <div style={styles.paymentSection}>
@@ -58,15 +84,16 @@ const Footer = () => {
         </div>
       </div>
       <div style={styles.footerBottom}>
-        <p>© 2023 DevCut. All rights reserved.</p>
+        <p>© 2024 The Rizz. All rights reserved.</p>
       </div>
     </footer>
   );
 };
 
+// Styles for the Footer component
 const styles = {
   footer: {
-    backgroundColor: "#f9f9f9",
+    backgroundColor: "#ffffff",
     padding: "40px 20px",
     textAlign: "center",
     fontFamily: "Arial, sans-serif",
@@ -156,21 +183,6 @@ const styles = {
     marginTop: "20px",
     fontSize: "12px",
     color: "#666",
-  },
-  "@media (max-width: 768px)": {
-    container: {
-      flexDirection: "column",
-      alignItems: "center",
-    },
-    section: {
-      textAlign: "center",
-    },
-    socialIcons: {
-      justifyContent: "center",
-    },
-    payments: {
-      justifyContent: "center",
-    },
   },
 };
 
