@@ -17,9 +17,9 @@ import ForgotPasswordPage from "./components/Admin/ForgotPassword";
 import ResetPasswordPage from "./components/Admin/ResetPassword";
 import CustomersPage from "./components/Admin/Customers";
 import ReviewsPage from "./components/Admin/Reviews";
-import Footer from "./components/User/Footer";
+
 import HomePage from "./components/User/HomePage.jsx";
-import DiscountStrip from "./components/User/Discounthead.jsx";
+
 import UserDashboardLayout from "./components/User/UserDashboardLayout.jsx";
 import CartPage from "./components/pages/CartPage.jsx";
 
@@ -65,6 +65,7 @@ const App = () => {
         {/* User Routes - All wrapped in UserDashboardLayout */}
         <Route path="/user" element={<UserDashboardLayout />}>
           <Route path="homepage" element={<HomePage />} />
+          <Route path="cart" element={<CartPage />} />
           {/* Add more user routes here as needed */}
           {/* Example:
           <Route path="products" element={<UserProducts />} />
