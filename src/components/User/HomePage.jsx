@@ -1,5 +1,6 @@
 import React from "react";
 import bannerImage from "../../assets/banner.jpg";
+import ProductGrid from "../User/BestSelling";
 
 const HomePage = () => {
   return (
@@ -109,6 +110,9 @@ const HomePage = () => {
             </p>
           </div>
         </div>
+      </div>
+      <div>
+        <ProductGrid />
       </div>
     </div>
   );
