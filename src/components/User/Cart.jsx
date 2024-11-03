@@ -3,21 +3,55 @@ import icons from "../../utils/utils";
 
 const CartTable = ({ cartItems }) => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [items, setItems] = useState(cartItems);
 
   // Filter cart items based on search query
-  const filteredCartItems = cartItems.filter((item) =>
-    item.product.toLowerCase().includes(searchQuery.toLowerCase()),
+  const filteredCartItems = items.filter((item) =>
+    item.product.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
+  // Calculate subtotal
+  const subtotal = items.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0
+  );
+
+  // Define tax and shipping charges
+  const taxRate = 0.07; // 7% tax
+  const shippingCharge = 5.99; // flat shipping charge
+
+  // Calculate tax and total
+  const tax = subtotal * taxRate;
+  const total = subtotal + tax + shippingCharge;
 
   // Placeholder function for checkout action
   const handleCheckout = () => {
-    // Logic for checkout goes here
-    alert("Proceeding to checkout..."); // Example alert
+    alert("Proceeding to checkout...");
   };
 
   // Placeholder function for moving to wishlist
   const handleMoveToWishlist = (itemId) => {
-    alert(`Item with ID ${itemId} moved to wishlist`); // Example alert
+    alert(`Item with ID ${itemId} moved to wishlist`);
+  };
+
+  // Increase item quantity
+  const increaseQuantity = (itemId) => {
+    setItems(
+      items.map((item) =>
+        item.id === itemId ? { ...item, quantity: item.quantity + 1 } : item
+      )
+    );
+  };
+
+  // Decrease item quantity
+  const decreaseQuantity = (itemId) => {
+    setItems(
+      items.map((item) =>
+        item.id === itemId && item.quantity > 1
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      )
+    );
   };
 
   return (
@@ -99,7 +133,6 @@ const CartTable = ({ cartItems }) => {
                     width: "60px",
                     height: "55px",
                     borderRadius: "50%",
-                    marginLeft: "50%", // Center the image
                   }}
                 />
               </td>
@@ -117,9 +150,34 @@ const CartTable = ({ cartItems }) => {
                   padding: "15px",
                   textAlign: "center",
                   verticalAlign: "middle",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
                 }}
               >
+                <button
+                  onClick={() => decreaseQuantity(item.id)}
+                  style={{
+                    padding: "5px",
+                    cursor: "pointer",
+                    marginRight: "5px",
+                    fontSize: "16px",
+                  }}
+                >
+                  -
+                </button>
                 {item.quantity}
+                <button
+                  onClick={() => increaseQuantity(item.id)}
+                  style={{
+                    padding: "5px",
+                    cursor: "pointer",
+                    marginLeft: "5px",
+                    fontSize: "16px",
+                  }}
+                >
+                  +
+                </button>
               </td>
               <td
                 style={{
@@ -153,7 +211,7 @@ const CartTable = ({ cartItems }) => {
                     style={{
                       padding: "5px 10px",
                       cursor: "pointer",
-                      color: "black", // Default color
+                      color: "black",
                       border: "none",
                       backgroundColor: "transparent",
                       marginRight: "10px",
@@ -168,7 +226,7 @@ const CartTable = ({ cartItems }) => {
                     style={{
                       padding: "5px 10px",
                       cursor: "pointer",
-                      color: "black", // Default color
+                      color: "black",
                       border: "none",
                       backgroundColor: "transparent",
                     }}
@@ -181,6 +239,27 @@ const CartTable = ({ cartItems }) => {
           ))}
         </tbody>
       </table>
+
+      {/* Receipt Section */}
+      <div style={{ marginTop: "20px", borderTop: "1px solid #ddd", paddingTop: "10px" }}>
+        <h3 style={{ fontSize: "18px", fontWeight: "bold" }}>Receipt</h3>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <span>Subtotal:</span>
+          <span>${subtotal.toFixed(2)}</span>
+        </div>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <span>Tax (7%):</span>
+          <span>${tax.toFixed(2)}</span>
+        </div>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <span>Shipping:</span>
+          <span>${shippingCharge.toFixed(2)}</span>
+        </div>
+        <div style={{ display: "flex", justifyContent: "space-between", fontWeight: "bold" }}>
+          <span>Total:</span>
+          <span>${total.toFixed(2)}</span>
+        </div>
+      </div>
 
       {/* Checkout Button */}
       <div style={{ textAlign: "right", marginTop: "20px" }}>
@@ -227,7 +306,6 @@ const CartTable2 = () => {
       quantity: 1,
       price: 49.99,
     },
-    // Add more cart items here
   ];
 
   return <CartTable cartItems={cartItems} />;
