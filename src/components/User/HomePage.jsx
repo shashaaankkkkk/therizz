@@ -17,7 +17,9 @@ const HomePage = () => {
         <div className="absolute inset-0 bg-black bg-opacity-25"></div>
 
         {/* Banner Content */}
-        <div className="relative z-10 flex items-center justify-start h-full pl-8 md:pl-16 lg:pl-24 text-white">
+        <div className="relative z-10 flex items-center justify-start h-full pl-32 text-white">
+          {" "}
+          {/* Increased padding-left for more right shift */}
           <div className="max-w-md space-y-6">
             <h1 className="text-4xl md:text-5xl font-bold leading-tight">
               Fresh Arrivals Online
@@ -34,9 +36,13 @@ const HomePage = () => {
 
       {/* Feature Section */}
       <div className="py-16 px-6 md:px-16 lg:px-24 bg-gray-100">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pl-10">
+          {" "}
+          {/* Added padding-left for right shift */}
           {/* Free Shipping */}
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-start">
+            {" "}
+            {/* Left aligned */}
             <div className="bg-gray-200 p-4 rounded-full mb-4">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -55,13 +61,14 @@ const HomePage = () => {
             </div>
             <h3 className="text-xl font-semibold mb-2">Free Shipping</h3>
             <p className="text-gray-600">
-              Upgrade your style today and get FREE shipping on all orders!
-              Don’t miss out.
+              Upgrade your style today with FREE shipping on all orders! Enjoy
+              fast delivery right to your doorstep.
             </p>
           </div>
-
           {/* Satisfaction Guarantee */}
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-start">
+            {" "}
+            {/* Left aligned */}
             <div className="bg-gray-200 p-4 rounded-full mb-4">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -86,9 +93,10 @@ const HomePage = () => {
               refund.
             </p>
           </div>
-
           {/* Secure Payment */}
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-start">
+            {" "}
+            {/* Left aligned */}
             <div className="bg-gray-200 p-4 rounded-full mb-4">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -107,7 +115,7 @@ const HomePage = () => {
             </div>
             <h3 className="text-xl font-semibold mb-2">Secure Payment</h3>
             <p className="text-gray-600">
-              Your security is our priority. Your payments are secure with us.
+              Your security is our priority. Enjoy secure transactions with us.
             </p>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import CartTable2 from "../User/cart";
+import CartTable2 from "../User/Cart";
 import ExploreMoreItems from "../User/ExploreItems";
 // Import the CartTable component
 
