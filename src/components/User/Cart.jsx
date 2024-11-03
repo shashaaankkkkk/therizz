@@ -82,7 +82,7 @@ const CartTable = ({ cartItems }) => {
                         <img
                           src={item.image}
                           alt={item.product}
-                          style={{ width: "50px", height: "45px", borderRadius: "50%" }}
+                          style={{ width: "50px", height: "45px", borderRadius: "10%" }}
                         />
                       </td>
                       <td style={{ padding: "10px", textAlign: "center", verticalAlign: "middle" }}>{item.product}</td>
