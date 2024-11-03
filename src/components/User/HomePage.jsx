@@ -1,7 +1,6 @@
 import React from "react";
 import bannerImage from "../../assets/banner.jpg";
-import ProductGrid from "./BestSelling";
-import BrowseProduct from "./BrowseProduct";
+import ProductGrid from "../User/BestSelling";
 
 const HomePage = () => {
   return (
@@ -114,7 +113,6 @@ const HomePage = () => {
       </div>
       <div>
         <ProductGrid />
-        <BrowseProduct />
       </div>
     </div>
   );

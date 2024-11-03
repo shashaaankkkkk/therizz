@@ -27,7 +27,6 @@ import Menu from "../assets/Menu.svg";
 import Minus from "../assets/Minus.svg";
 import More from "../assets/More.svg";
 import Pfp from "../assets/pfp.png";
-import Poncho from "../assets/poncho.png";
 import Product from "../assets/Product.svg";
 import Search from "../assets/Search.svg";
 import Settings from "../assets/Settings.svg";
@@ -50,7 +49,6 @@ import image4 from "../assets/Image-4.svg";
 import image5 from "../assets/Image-5.svg";
 import image6 from "../assets/Image-6.svg";
 import image7 from "../assets/Image-7.svg";
-import image8 from "../assets/Image-8.png";
 import open from "../assets/open.png";
 import closed from "../assets/closed.png";
 
@@ -85,7 +83,6 @@ const icons = {
   Minus,
   More,
   Pfp,
-  Poncho,
   Product,
   Search,
   Settings,
@@ -108,7 +105,6 @@ const icons = {
   image5,
   image6,
   image7,
-  image8,
   open,
   closed,
 };
