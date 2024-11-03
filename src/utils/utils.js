@@ -4,6 +4,10 @@ import Admin from "../assets/admin.svg";
 import ArrowLeft from "../assets/Arrow Left.svg";
 import ArrowRight from "../assets/Arrow Right.svg";
 import ArrowUp from "../assets/Arrow up.svg";
+import BestSelling1 from "../assets/BestSelling1.png";
+import BestSelling2 from "../assets/BestSelling2.png";
+import BestSelling3 from "../assets/BestSelling3.png";
+import BestSelling4 from "../assets/BestSelling4.png";
 import Cart from "../assets/Cart.svg";
 import Check from "../assets/Check.svg";
 import ChevronDown from "../assets/Chevron Down.svg";
@@ -56,6 +60,10 @@ const icons = {
   ArrowLeft,
   ArrowRight,
   ArrowUp,
+  BestSelling1,
+  BestSelling2,
+  BestSelling3,
+  BestSelling4,
   Cart,
   Check,
   ChevronDown,
