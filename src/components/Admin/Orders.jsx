@@ -85,10 +85,10 @@ const OrderTable = ({ orders }) => {
                   src={order.image}
                   alt={order.order}
                   style={{
-                    width: "60px",
-                    height: "55px",
-                    borderRadius: "50%",
-                    marginLeft: "50%", // Added margin to shift the image to the right
+                    width: "80px",
+                    height: "60x",
+                    borderRadius: "10%",
+                    marginLeft: "30%", // Added margin to shift the image to the right
                   }}
                 />
               </td>
