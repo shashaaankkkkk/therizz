@@ -17,10 +17,9 @@ import ForgotPasswordPage from "./components/Admin/ForgotPassword";
 import ResetPasswordPage from "./components/Admin/ResetPassword";
 import CustomersPage from "./components/Admin/Customers";
 import ReviewsPage from "./components/Admin/Reviews";
-
-import HomePage from "./components/User/HomePage.jsx";
-
-import UserDashboardLayout from "./components/User/UserDashboardLayout.jsx";
+import HomePage from "./components/User/HomePage";
+import UserDashboardLayout from "./components/User/UserDashboardLayout";
+import ProductGrid from "./components/User/BestSelling";
 import CartPage from "./components/pages/CartPage.jsx";
 
 // Protected Route wrapper for admin routes
@@ -65,6 +64,7 @@ const App = () => {
         {/* User Routes - All wrapped in UserDashboardLayout */}
         <Route path="/user" element={<UserDashboardLayout />}>
           <Route path="homepage" element={<HomePage />} />
+          <Route path="aroma" element={<ProductGrid />} />
           <Route path="cart" element={<CartPage />} />
           {/* Add more user routes here as needed */}
           {/* Example:
