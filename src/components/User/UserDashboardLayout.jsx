@@ -9,6 +9,7 @@ import {
   FaTimes,
 } from "react-icons/fa";
 import icons from "../../utils/utils";
+import Footer from "../Footer.jsx";
 
 const DiscountStrip = () => (
   <div className="p-2 bg-black text-white text-center">
@@ -163,6 +164,7 @@ const UserDashboardLayout = () => {
       <main className="flex-grow">
         <Outlet />
       </main>
+      <Footer />
     </div>
   );
 };
