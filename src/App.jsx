@@ -21,6 +21,7 @@ import HomePage from "./components/User/HomePage";
 import UserDashboardLayout from "./components/User/UserDashboardLayout";
 import ProductGrid from "./components/User/BestSelling";
 import CartPage from "./components/pages/CartPage.jsx";
+import ProductDetail from "./components/User/ProductDetail.jsx";
 
 // Protected Route wrapper for admin routes
 const ProtectedRoute = ({ children }) => {
@@ -65,6 +66,8 @@ const App = () => {
         <Route path="/user" element={<UserDashboardLayout />}>
           <Route path="homepage" element={<HomePage />} />
           <Route path="cart" element={<CartPage />} />
+          <Route path="pd" element={<ProductDetail />} />
+          
           {/* Add more user routes here as needed */}
           {/* Example:
           <Route path="products" element={<UserProducts />} />
