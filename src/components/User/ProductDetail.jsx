@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import icons from "../../utils/utils"; // Assuming you have your icons in this path
 import { Heart } from "lucide-react";
 import ExploreMoreItems from "./ExploreItems";
-import BreadCrumb from "./Breadcrumb";
+import Breadcrumb from "./Breadcrumb";
 const ProductDetail = () => {
   const [quantity, setQuantity] = useState(1);
   const [isWishlisted, setIsWishlisted] = useState(false);
@@ -45,7 +45,7 @@ const ProductDetail = () => {
 
   return (
     <>
-      <BreadCrumb />
+      <Breadcrumb />
       <div style={{ display: "flex", flexDirection: "column", margin: "20px" }}>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           {/* Left Side - Thumbnail Images */}
@@ -400,4 +400,3 @@ const ProductDetail = () => {
 };
 
 export default ProductDetail;
-
