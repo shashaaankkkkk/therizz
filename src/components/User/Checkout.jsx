@@ -15,7 +15,6 @@ const Checkout = () => {
   };
 
   const handlePlaceOrder = () => {
-    // Implement place order functionality here
     alert("Order placed successfully!");
   };
 
@@ -93,21 +92,40 @@ const Checkout = () => {
       <div style={{ flex: 1, padding: '20px', border: '1px solid #ddd', borderRadius: '8px' }}>
         <h2 style={{ marginBottom: '20px' }}>Purchase Summary</h2>
         
-        {/* Products List */}
-        <div style={{ marginBottom: '20px' }}>
-          <p> Monochrome T-Shirt - $50.00</p>
-          <p> Denim Jeans - $75.00</p>
-          {/* Add more products as needed */}
-          <button style={{ backgroundColor: 'black', color: 'white', padding: '8px 12px', borderRadius: '4px', border: 'none', cursor: 'pointer' }}>
+        {/* Products List and Edit Cart Button */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px' }}>
+          <div>
+            <p> Monochrome T-Shirt - $50.00</p>
+            <p> Denim Jeans - $75.00</p>
+          </div>
+          <button
+            style={{
+              backgroundColor: 'black',
+              color: 'white',
+              padding: '8px 12px',
+              borderRadius: '4px',
+              border: 'none',
+              cursor: 'pointer',
+              height: 'fit-content'
+            }}
+          >
             Edit Cart
           </button>
         </div>
 
         {/* Receipt */}
-        <div style={{ borderTop: '1px solid #ccc', paddingTop: '15px' }}>
+        <div style={{ borderTop: '1px solid #ccc', paddingTop: '15px', paddingBottom: '20px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
             <span>Subtotal:</span>
             <span>$125.00</span>
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
+            <span>Discount:</span>
+            <span>-$10.00</span>
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
+            <span>Coupon Discount:</span>
+            <span>-$5.00</span>
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
             <span>Shipping:</span>
@@ -115,11 +133,23 @@ const Checkout = () => {
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: 'bold', fontSize: '16px', marginBottom: '20px' }}>
             <span>Total:</span>
-            <span>$130.00</span>
+            <span>$115.00</span>
           </div>
+          
+          {/* Place Order Button */}
           <button 
             onClick={handlePlaceOrder}
-            style={{ width: '100%', padding: '12px', backgroundColor: 'black', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '16px' }}
+            style={{
+              width: '100%',
+              padding: '12px',
+              backgroundColor: 'black',
+              color: 'white',
+              border: 'none',
+              borderRadius: '4px',
+              cursor: 'pointer',
+              fontSize: '16px',
+              marginTop: '30px'
+            }}
           >
             Place Order
           </button>

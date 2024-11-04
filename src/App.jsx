@@ -23,6 +23,7 @@ import ProductGrid from "./components/User/BestSelling";
 import CartPage from "./components/pages/CartPage";
 import ProductDetail from "./components/User/ProductDetail";
 import Listing from "./components/User/Listing";
+import Checkout from "./components/User/checkout.jsx";
 
 // Protected Route wrapper for admin routes
 const ProtectedRoute = ({ children }) => {
@@ -69,6 +70,7 @@ const App = () => {
           <Route path="cart" element={<CartPage />} />
           <Route path="product" element={<ProductDetail />} />
           <Route path="listing" element={<Listing />} />
+          <Route path="checkout" element={<Checkout/>} />
           {/* Add more user routes here as needed */}
           {/* Example:
           <Route path="products" element={<UserProducts />} />
