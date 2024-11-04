@@ -26,6 +26,7 @@ import Listing from "./components/User/Listing";
 import Checkout from "./components/User/Checkout";
 import UserLogin from "./components/User/UserLogin";
 import UserSignup from "./components/User/UserSignIn";
+import OrderSuccess from "./components/User/PaymentDone";
 
 // Protected Route wrapper for admin routes
 const ProtectedRoute = ({ children }) => {
@@ -76,6 +77,8 @@ const App = () => {
           <Route path="ulogin" element={<UserLogin />} />
           <Route path="usignin" element={<UserSignup />} />
           <Route path="uforgot-password" element={<ForgotPasswordPage />} />
+          <Route path="success" element={<OrderSuccess />} />
+          
           {/* Add more user routes here as needed */}
           {/* Example:
           <Route path="products" element={<UserProducts />} />
