@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import icons from "../../utils/utils";
-import BreadCrumb from "./Breadcrumb";
+import Breadcrumb from "./Breadcrumb";
 
 const Listing = () => {
   const [selectedCategory, setSelectedCategory] = useState([]);
@@ -114,7 +114,7 @@ const Listing = () => {
 
   return (
     <>
-      <BreadCrumb />
+      <Breadcrumb />
       <div className="flex flex-col md:flex-row p-4 md:p-8 font-sans bg-white min-h-screen">
         {/* Sidebar */}
         <div className="w-full md:w-1/4 p-4 bg-white rounded-lg shadow-lg mb-4 md:mb-0">

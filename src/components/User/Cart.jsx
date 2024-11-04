@@ -48,7 +48,7 @@ const CartTable = ({ cartItems }) => {
 
   return (
     <>
-      <Breadcrumb />
+      <Breadcrumb thick={true} />
       <div
         style={{
           display: "flex",
