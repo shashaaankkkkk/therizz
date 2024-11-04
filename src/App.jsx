@@ -23,6 +23,7 @@ import ProductGrid from "./components/User/BestSelling";
 import CartPage from "./components/pages/CartPage.jsx";
 import ProductDetail from "./components/User/ProductDetail.jsx";
 
+
 // Protected Route wrapper for admin routes
 const ProtectedRoute = ({ children }) => {
   const isAuthenticated = localStorage.getItem("isAuthenticated") === "true";
@@ -67,6 +68,7 @@ const App = () => {
           <Route path="homepage" element={<HomePage />} />
           <Route path="cart" element={<CartPage />} />
           <Route path="product" element={<ProductDetail />} />
+          
           
           {/* Add more user routes here as needed */}
           {/* Example:
