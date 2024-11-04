@@ -24,6 +24,7 @@ import CartPage from "./components/pages/CartPage";
 import ProductDetail from "./components/User/ProductDetail";
 import Listing from "./components/User/Listing";
 import Checkout from "./components/User/checkout.jsx";
+import OrderSuccess from "./components/User/PaymentDone.jsx";
 
 // Protected Route wrapper for admin routes
 const ProtectedRoute = ({ children }) => {
@@ -71,6 +72,8 @@ const App = () => {
           <Route path="product" element={<ProductDetail />} />
           <Route path="listing" element={<Listing />} />
           <Route path="checkout" element={<Checkout/>} />
+          <Route path="success" element={<OrderSuccess/>} />
+          
           {/* Add more user routes here as needed */}
           {/* Example:
           <Route path="products" element={<UserProducts />} />
