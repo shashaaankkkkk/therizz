@@ -23,15 +23,14 @@ import ProductGrid from "./components/User/BestSelling";
 import CartPage from "./components/pages/CartPage";
 import ProductDetail from "./components/User/ProductDetail";
 import Listing from "./components/User/Listing";
-import Checkout from "./components/User/checkout";
+import Checkout from "./components/User/Checkout";
 import UserLogin from "./components/User/Authentication/UserLogin";
 import UserSignup from "./components/User/Authentication/UserSignIn";
 import OrderSuccess from "./components/User/PaymentDone";
 import ForgotPassword from "./components/User/Authentication/UserForgotPassword";
 import ResetPassword from "./components/User/Authentication/ResetPassword";
 import OrderFail from "./components/User/PaymentFail";
-
-
+import CustomerProfileLayout from "./components/User/CustProfileLayout";
 
 // Protected Route wrapper for admin routes
 const ProtectedRoute = ({ children }) => {
@@ -83,24 +82,15 @@ const App = () => {
           <Route path="ulogin" element={<UserLogin />} />
           <Route path="usignin" element={<UserSignup />} />
           <Route path="forgot password" element={<ForgotPassword />} />
+          <Route path="reset password" element={<ResetPassword />} />
           <Route path="success" element={<OrderSuccess />} />
-          
-          {/* Add more user routes here as needed */}
-          {/* Example:
-          <Route path="products" element={<UserProducts />} />
-          <Route path="categories" element={<Categories />} />
-          <Route path="about" element={<About />} />
-          <Route path="contact" element={<Contact />} />
-          */}
         </Route>
-        
+
+        {/* Profile vale sare system yaha se dalne hai */}
+        <Route path="/profile" element={<CustomerProfileLayout />}></Route>
 
         {/* Catch all undefined routes - redirect to login */}
         <Route path="*" element={<Navigate to="/login" replace />} />
-        
-        
-        
-        
       </Routes>
     </Router>
   );
