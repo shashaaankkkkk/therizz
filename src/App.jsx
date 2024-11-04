@@ -23,8 +23,9 @@ import ProductGrid from "./components/User/BestSelling";
 import CartPage from "./components/pages/CartPage";
 import ProductDetail from "./components/User/ProductDetail";
 import Listing from "./components/User/Listing";
-import Checkout from "./components/User/checkout.jsx";
-import OrderSuccess from "./components/User/PaymentDone.jsx";
+import Checkout from "./components/User/Checkout";
+import UserLogin from "./components/User/UserLogin";
+import UserSignup from "./components/User/UserSignIn";
 
 // Protected Route wrapper for admin routes
 const ProtectedRoute = ({ children }) => {
@@ -71,9 +72,10 @@ const App = () => {
           <Route path="cart" element={<CartPage />} />
           <Route path="product" element={<ProductDetail />} />
           <Route path="listing" element={<Listing />} />
-          <Route path="checkout" element={<Checkout/>} />
-          <Route path="success" element={<OrderSuccess/>} />
-          
+          <Route path="checkout" element={<Checkout />} />
+          <Route path="ulogin" element={<UserLogin />} />
+          <Route path="usignin" element={<UserSignup />} />
+          <Route path="uforgot-password" element={<ForgotPasswordPage />} />
           {/* Add more user routes here as needed */}
           {/* Example:
           <Route path="products" element={<UserProducts />} />

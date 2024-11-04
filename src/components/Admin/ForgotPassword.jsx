@@ -26,8 +26,8 @@ const ForgotPasswordPage = () => {
           Forgot Password
         </h2>
         <p className="text-sm text-gray-600 mb-10 text-center">
-          Enter your email address, and we'll send you a link to reset your
-          password.
+          Please enter the email address associated with your account. We'll
+          promptly send you a link to reset your password.
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-6">
