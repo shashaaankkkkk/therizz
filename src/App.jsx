@@ -24,9 +24,11 @@ import CartPage from "./components/pages/CartPage";
 import ProductDetail from "./components/User/ProductDetail";
 import Listing from "./components/User/Listing";
 import Checkout from "./components/User/checkout";
-import UserLogin from "./components/User/UserLogin";
-import UserSignup from "./components/User/UserSignIn";
+import UserLogin from "./components/User/Authentication/UserLogin";
+import UserSignup from "./components/User/Authentication/UserSignIn";
 import OrderSuccess from "./components/User/PaymentDone";
+import ForgotPassword from "./components/User/Authentication/UserForgotPassword";
+import ResetPassword from "./components/User/Authentication/ResetPassword";
 import OrderFail from "./components/User/PaymentFail";
 import CustomerProfileLayout from "./components/User/custProfileLayout";
 
@@ -80,17 +82,9 @@ const App = () => {
           <Route path="checkout" element={<Checkout />} />
           <Route path="ulogin" element={<UserLogin />} />
           <Route path="usignin" element={<UserSignup />} />
-          <Route path="uforgot-password" element={<ForgotPasswordPage />} />
+          <Route path="forgot password" element={<ForgotPassword />} />
           <Route path="success" element={<OrderSuccess />} />
-          <Route path="fail" element={<OrderFail />} />
           
-        
-          
-
-
-          
-          
-        
           {/* Add more user routes here as needed */}
           {/* Example:
           <Route path="products" element={<UserProducts />} />

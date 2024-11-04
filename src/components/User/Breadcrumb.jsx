@@ -34,11 +34,18 @@ const Breadcrumb = ({ thick = false }) => {
     };
 
     let currentPath = "";
-    pathnames.forEach((name, index) => {
-      currentPath += `/${name}`;
-      const label =
-        routeLabels[name] || name.charAt(0).toUpperCase() + name.slice(1);
+    pathnames.forEach((encodedName, index) => {
+      const name = decodeURIComponent(encodedName); // Decode the URL component
 
+      // Capitalize each word in multi-word labels
+      const label =
+        routeLabels[name] ||
+        name
+          .split(" ")
+          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(" ");
+
+      currentPath += `/${encodedName}`;
       if (name !== "admin" && name !== "user") {
         breadcrumbs.push({
           label,
@@ -68,7 +75,7 @@ const Breadcrumb = ({ thick = false }) => {
   return (
     <nav
       aria-label="Breadcrumb"
-      className={`bg-gray-100 px-4 ${thick ? "py-8" : "py-5"} sm:px-6 w-full`}
+      className={`bg-gray-200 px-4 ${thick ? "py-8" : "py-5"} sm:px-6 w-full`}
     >
       <div className="max-w-7xl mx-auto">
         {thick ? (
