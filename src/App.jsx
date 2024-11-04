@@ -20,9 +20,9 @@ import ReviewsPage from "./components/Admin/Reviews";
 import HomePage from "./components/User/HomePage";
 import UserDashboardLayout from "./components/User/UserDashboardLayout";
 import ProductGrid from "./components/User/BestSelling";
-import CartPage from "./components/pages/CartPage.jsx";
-import ProductDetail from "./components/User/ProductDetail.jsx";
-
+import CartPage from "./components/pages/CartPage";
+import ProductDetail from "./components/User/ProductDetail";
+import Listing from "./components/User/Listing";
 
 // Protected Route wrapper for admin routes
 const ProtectedRoute = ({ children }) => {
@@ -68,8 +68,7 @@ const App = () => {
           <Route path="homepage" element={<HomePage />} />
           <Route path="cart" element={<CartPage />} />
           <Route path="product" element={<ProductDetail />} />
-          
-          
+          <Route path="listing" element={<Listing />} />
           {/* Add more user routes here as needed */}
           {/* Example:
           <Route path="products" element={<UserProducts />} />
