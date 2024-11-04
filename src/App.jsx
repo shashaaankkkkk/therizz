@@ -23,10 +23,13 @@ import ProductGrid from "./components/User/BestSelling";
 import CartPage from "./components/pages/CartPage";
 import ProductDetail from "./components/User/ProductDetail";
 import Listing from "./components/User/Listing";
-import Checkout from "./components/User/Checkout";
+import Checkout from "./components/User/checkout";
 import UserLogin from "./components/User/UserLogin";
 import UserSignup from "./components/User/UserSignIn";
 import OrderSuccess from "./components/User/PaymentDone";
+import OrderFail from "./components/User/PaymentFail";
+
+
 
 // Protected Route wrapper for admin routes
 const ProtectedRoute = ({ children }) => {
@@ -78,7 +81,15 @@ const App = () => {
           <Route path="usignin" element={<UserSignup />} />
           <Route path="uforgot-password" element={<ForgotPasswordPage />} />
           <Route path="success" element={<OrderSuccess />} />
+          <Route path="fail" element={<OrderFail />} />
           
+        
+          
+
+
+          
+          
+        
           {/* Add more user routes here as needed */}
           {/* Example:
           <Route path="products" element={<UserProducts />} />
@@ -87,9 +98,12 @@ const App = () => {
           <Route path="contact" element={<Contact />} />
           */}
         </Route>
+        
 
         {/* Catch all undefined routes - redirect to login */}
         <Route path="*" element={<Navigate to="/login" replace />} />
+        
+        
       </Routes>
     </Router>
   );
