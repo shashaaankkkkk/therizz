@@ -1,6 +1,6 @@
 // UserDashboardLayout.jsx
 import React, { useState } from "react";
-import { Outlet, Link } from "react-router-dom"; // Added Outlet and Link
+import { Outlet, Link, useLocation, useNavigate } from "react-router-dom"; // Added Outlet and Link
 import {
   FaShoppingCart,
   FaUserCircle,
@@ -8,6 +8,7 @@ import {
   FaBars,
   FaTimes,
 } from "react-icons/fa";
+import { Menu, ChevronRight } from "lucide-react";
 import icons from "../../utils/utils";
 import Footer from "../User/Footer.jsx";
 import Newsletter from "../User/Newsletter";
@@ -24,6 +25,42 @@ const UserDashboardLayout = () => {
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const getBreadcrumbs = () => {
+    const path = location.pathname;
+
+    if (path === "/user/homepage") {
+      return [
+        { label: "User", path: "/user/homepage" },
+        { label: "Saman lelo", path: "/user/homepage" },
+      ];
+    }
+
+    // Remove leading slash and split path
+    const pathSegments = path.slice(1).split("/");
+    const breadcrumbs = [{ label: "User", path: "/user/homepage" }];
+
+    // Handle each path segment
+    pathSegments.forEach((segment, index) => {
+      if (index === 0) return; // Skip 'admin' segment
+
+      // Construct the path for the link
+      const currentPath = `/${pathSegments.slice(0, index + 1).join("/")}`;
+
+      // Format the segment (capitalize first letter and replace hyphens)
+      const formattedSegment =
+        segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, " ");
+
+      // Handle "add" specially when it's after "products"
+      if (segment === "add" && pathSegments[index - 1] === "products") {
+        breadcrumbs.push({ label: "Add Product", path: currentPath });
+      } else {
+        breadcrumbs.push({ label: formattedSegment, path: currentPath });
+      }
+    });
+
+    return breadcrumbs;
   };
 
   return (
@@ -158,6 +195,32 @@ const UserDashboardLayout = () => {
               </Link>
             </li>
           </ul>
+        </div>
+        {/* Breadcrumb Navigation */}
+        <div className="flex items-center text-base ml-2">
+          {getBreadcrumbs().map((item, index) => (
+            <React.Fragment key={index}>
+              {index < getBreadcrumbs().length - 1 ? (
+                <Link
+                  to={item.path}
+                  className={
+                    index === 0
+                      ? "text-gray-500 dark:text-neutral-400"
+                      : "text-gray-900 dark:text-neutral-100 font-medium hover:underline"
+                  }
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <span className="text-gray-900 dark:text-neutral-100 font-medium">
+                  {item.label}
+                </span>
+              )}
+              {index < getBreadcrumbs().length - 1 && (
+                <ChevronRight className="size-4 mx-2 text-gray-400 dark:text-neutral-500" />
+              )}
+            </React.Fragment>
+          ))}
         </div>
       </header>
 
