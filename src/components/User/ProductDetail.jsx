@@ -7,11 +7,12 @@ const ProductDetail = () => {
   const [isWishlisted, setIsWishlisted] = useState(false);
   const [isZoomed, setIsZoomed] = useState(false);
   const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 });
+  const [mainImage, setMainImage] = useState(icons.image2); // Set initial main image
 
   // Sample product data
   const product = {
     name: 'Classic Monochrome T-Shirt',
-    image: icons.image2, // Replace with your image source
+    images: [icons.image2, icons.image2, icons.image2, icons.image2], // Replace with actual image sources
     rating: 4.5,
     inStock: true,
     description: 'A classic t-shirt made from 100% cotton for ultimate comfort.',
@@ -35,10 +36,30 @@ const ProductDetail = () => {
 
   return (
     <div style={{ display: 'flex', justifyContent: 'space-between', margin: '20px' }}>
-      {/* Left Side - Product Image with zoom effect */}
+      {/* Left Side - Thumbnail Images */}
+      <div style={{ display: 'flex', flexDirection: 'column', marginRight: '20px' }}>
+        {product.images.map((image, index) => (
+          <img
+            key={index}
+            src={image}
+            alt={`Thumbnail ${index + 1}`}
+            onClick={() => setMainImage(image)}
+            style={{
+              width: '60px',
+              height: '60px',
+              marginBottom: '10px',
+              cursor: 'pointer',
+              borderRadius: '4px',
+              border: mainImage === image ? '2px solid black' : '1px solid #ddd',
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Center - Main Product Image with zoom effect */}
       <div
         style={{
-          flex: 1.1, // Reduced from 1.2 to 1.1 for a smaller image size
+          flex: 0.7,
           marginRight: '40px',
           position: 'relative',
           overflow: 'hidden',
@@ -48,7 +69,7 @@ const ProductDetail = () => {
         onMouseMove={handleMouseMove}
       >
         <img
-          src={product.image}
+          src={mainImage}
           alt={product.name}
           style={{
             width: '100%',
@@ -61,7 +82,7 @@ const ProductDetail = () => {
       </div>
 
       {/* Right Side - Product Details */}
-      <div style={{ flex: 0.9, padding: '0 10px' }}>
+      <div style={{ flex: 1.3, padding: '0 10px' }}>
         <h2 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '15px' }}>{product.name}</h2>
         
         <div style={{ display: 'flex', alignItems: 'center', margin: '15px 0' }}>
