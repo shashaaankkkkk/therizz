@@ -28,6 +28,7 @@ import UserLogin from "./components/User/UserLogin";
 import UserSignup from "./components/User/UserSignIn";
 import OrderSuccess from "./components/User/PaymentDone";
 import OrderFail from "./components/User/PaymentFail";
+import CustomerProfileLayout from "./components/User/custProfileLayout";
 
 
 
@@ -102,6 +103,7 @@ const App = () => {
 
         {/* Catch all undefined routes - redirect to login */}
         <Route path="*" element={<Navigate to="/login" replace />} />
+        <Route path="sb" element={<CustomerProfileLayout/>}/>
         
         
       </Routes>

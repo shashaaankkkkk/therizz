@@ -166,7 +166,7 @@ const CustomerProfileLayout = () => {
       <main className="flex-grow">
         <Outlet />
       </main>
-      <Breadcrumb />
+      <Breadcrumb thick = "True" />
       <Sidebar2/>
       <Footer/>
     </div>
