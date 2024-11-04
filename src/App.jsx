@@ -66,7 +66,7 @@ const App = () => {
         <Route path="/user" element={<UserDashboardLayout />}>
           <Route path="homepage" element={<HomePage />} />
           <Route path="cart" element={<CartPage />} />
-          <Route path="pd" element={<ProductDetail />} />
+          <Route path="product" element={<ProductDetail />} />
           
           {/* Add more user routes here as needed */}
           {/* Example:
