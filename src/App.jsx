@@ -33,6 +33,7 @@ import CustomerProfileLayout from "./components/User/custProfileLayout";
 // import OrderSimpleTableExample from "./components/User/CustOrders";
 import OrderHistoryTableContainer from "./components/User/CustOrders";
 import AddressPage from "./components/User/Address";
+import Wishlist from "./components/User/Wishlist";
 
 // Protected Route wrapper for admin routes
 const ProtectedRoute = ({ children }) => {
@@ -54,7 +55,6 @@ const App = () => {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
         <Route path="/reset-password" element={<ResetPasswordPage />} />
-        
 
         {/* Protected Admin Routes */}
         <Route
@@ -91,8 +91,9 @@ const App = () => {
         {/* Profile vale sare system yaha se dalne hai */}
        
         <Route path="/profile" element={<CustomerProfileLayout />}>
-          <Route path="orders" element={<OrderHistoryTableContainer />} />
-          <Route path="address" element={<AddressPage />} />
+          <Route path="product" element={<OrderHistoryTableContainer />} />
+          <Route path="ad" element={<AddressPage />} />
+          
           <Route path="wishlist" element={<Wishlist />} />
         </Route>
           
