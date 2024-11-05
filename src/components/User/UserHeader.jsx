@@ -147,7 +147,7 @@ function UserHeader() {
       </div>
 
       {/* Outlet for nested routes */}
-      <Outlet />
+
     </header>
   );
 }
