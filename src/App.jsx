@@ -87,7 +87,9 @@ const App = () => {
         </Route>
 
         {/* Profile vale sare system yaha se dalne hai */}
-        <Route path="/profile" element={<CustomerProfileLayout />}></Route>
+        <Route path="/profile" element={<CustomerProfileLayout />}>
+          <Route path="wo" element={<ProductsPage />} />
+        </Route>
 
         {/* Catch all undefined routes - redirect to login */}
         <Route path="*" element={<Navigate to="/login" replace />} />
