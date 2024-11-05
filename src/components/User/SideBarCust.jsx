@@ -1,32 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Sidebar2 = () => {
+  const location = useLocation();
+  const [activeItem, setActiveItem] = useState(location.pathname); // Tracks active item based on URL path
+
   return (
     <div style={styles.sidebarContainer}>
       {sidebarItems.map((item, index) => (
-        <div
+        <Link
+          to={item.path} // Set destination for each item
           key={index}
-          style={styles.sidebarItem}
-          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#f0f0f0')}
-          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'white')}
+          onClick={() => setActiveItem(item.path)} // Update active item when clicked
+          style={{
+            ...styles.sidebarItem,
+            backgroundColor: activeItem === item.path ? '#f0f0f0' : 'white', // Change background color if active
+          }}
         >
-          {/* Placeholder Icon - Replace src with actual icons */}
           <img src={item.icon} alt={`${item.label} Icon`} style={styles.icon} />
           <span style={styles.label}>{item.label}</span>
-        </div>
+        </Link>
       ))}
     </div>
   );
 };
 
-// Sidebar items with labels and placeholder icon sources
+// Sidebar items with labels, icons, and paths
 const sidebarItems = [
-  { label: 'Orders', icon: '../src/assets/Cart.svg' },
-  { label: 'Wishlist', icon: '../src/assets/Heart.svg' },
-  { label: 'Address', icon: '../src/assets/Delivery.svg' },
-  { label: 'Password', icon: '../src/assets/Key.svg' },
-  { label: 'Account Detail', icon: '../src/assets/User.svg' },
-  { label: 'Logout', icon: '../src/assets/Logout.svg' },
+  { label: 'Orders', icon: '../src/assets/Cart.svg', path: '/profile/wo' },
+  { label: 'Wishlist', icon: '../src/assets/Heart.svg', path: '/wishlist' },
+  { label: 'Address', icon: '../src/assets/Delivery.svg', path: '/address' },
+  { label: 'Password', icon: '../src/assets/Key.svg', path: '/password' },
+  { label: 'Account Detail', icon: '../src/assets/User.svg', path: '/account' },
+  { label: 'Logout', icon: '../src/assets/Logout.svg', path: '/logout' },
 ];
 
 // CSS-in-JS styles for the sidebar
@@ -48,6 +54,7 @@ const styles = {
     width: '100%',
     fontSize: '16px',
     color: 'black',
+    textDecoration: 'none', // Remove link underline
     cursor: 'pointer',
     transition: 'background-color 0.3s ease',
   },

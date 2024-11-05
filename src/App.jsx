@@ -89,11 +89,14 @@ const App = () => {
         </Route>
 
         {/* Profile vale sare system yaha se dalne hai */}
+       
         <Route path="/profile" element={<CustomerProfileLayout />}>
-          <Route path="wo" element={<OrderHistoryTableContainer />} />
-          <Route path="ad" element={<AddressPage />} />
-          
+          <Route path="orders" element={<OrderHistoryTableContainer />} />
+          <Route path="address" element={<AddressPage />} />
+          <Route path="wishlist" element={<Wishlist />} />
         </Route>
+          
+        
 
         {/* Catch all undefined routes - redirect to login */}
         <Route path="*" element={<Navigate to="/login" replace />} />
