@@ -28,12 +28,12 @@ import UserSignup from "./components/User/Authentication/UserSignIn";
 import OrderSuccess from "./components/User/PaymentDone";
 import ForgotPassword from "./components/User/Authentication/UserForgotPassword";
 import ResetPassword from "./components/User/Authentication/ResetPassword";
-// import OrderFail from "./components/User/PaymentFail";
-import CustomerProfileLayout from "./components/User/custProfileLayout";
-// import OrderSimpleTableExample from "./components/User/CustOrders";
+import CustomerProfileLayout from "./components/User/CustProfileLayout";
 import OrderHistoryTableContainer from "./components/User/CustOrders";
 import AddressPage from "./components/User/Address";
 import Wishlist from "./components/User/Wishlist";
+import AccountDetails from "./components/User/AccountDetails";
+import PasswordChangePage from "./components/User/Password";
 
 // Protected Route wrapper for admin routes
 const ProtectedRoute = ({ children }) => {
@@ -94,6 +94,8 @@ const App = () => {
           <Route path="orders" element={<OrderHistoryTableContainer />} />
           <Route path="address" element={<AddressPage />} />
           <Route path="wishlist" element={<Wishlist />} />
+          <Route path="account" element={<AccountDetails />} />
+          <Route path="password" element={<PasswordChangePage />} />
         </Route>
           
         
