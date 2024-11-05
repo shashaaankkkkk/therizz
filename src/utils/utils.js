@@ -53,7 +53,7 @@ import image7 from "../assets/Image-7.svg";
 import image8 from "../assets/Image-8.png";
 import open from "../assets/open.png";
 import closed from "../assets/closed.png";
-
+import notfound from "../assets/notfound.png";
 // Export as an object for easy access
 const icons = {
   AddToCart,
@@ -111,6 +111,7 @@ const icons = {
   image8,
   open,
   closed,
+  notfound,
 };
 
 export default icons;

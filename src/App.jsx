@@ -1,4 +1,3 @@
-// App.jsx
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -33,7 +32,11 @@ import OrderHistoryTableContainer from "./components/User/CustOrders";
 import AddressPage from "./components/User/Address";
 import Wishlist from "./components/User/Wishlist";
 import AccountDetails from "./components/User/AccountDetails";
+
 import PasswordChangePage from "./components/User/Password";
+import EmptyOrderHistory from "./components/User/EmptyOrders";
+import NotFoundPage from "./components/Error404";
+
 
 // Protected Route wrapper for admin routes
 const ProtectedRoute = ({ children }) => {
@@ -88,20 +91,22 @@ const App = () => {
           <Route path="success" element={<OrderSuccess />} />
         </Route>
 
-        {/* Profile vale sare system yaha se dalne hai */}
-       
+        {/* Profile Routes */}
         <Route path="/profile" element={<CustomerProfileLayout />}>
           <Route path="orders" element={<OrderHistoryTableContainer />} />
           <Route path="address" element={<AddressPage />} />
           <Route path="wishlist" element={<Wishlist />} />
+
           <Route path="account" element={<AccountDetails />} />
           <Route path="password" element={<PasswordChangePage />} />
-        </Route>
-          
-        
 
-        {/* Catch all undefined routes - redirect to login */}
-        <Route path="*" element={<Navigate to="/login" replace />} />
+          <Route path="Your Details" element={<AccountDetails />} />
+          <Route path="empty orders" element={<EmptyOrderHistory />} />
+
+        </Route>
+
+        {/* Catch all undefined routes - show NotFoundPage */}
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Router>
   );

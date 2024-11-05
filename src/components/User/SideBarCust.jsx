@@ -27,12 +27,12 @@ const Sidebar2 = () => {
 
 // Sidebar items with labels, icons, and paths
 const sidebarItems = [
-  { label: 'Orders', icon: '../src/assets/Cart.svg', path: '/profile/wo' },
-  { label: 'Wishlist', icon: '../src/assets/Heart.svg', path: '/wishlist' },
-  { label: 'Address', icon: '../src/assets/Delivery.svg', path: '/address' },
+  { label: 'Orders', icon: '../src/assets/Cart.svg', path: '/profile/orders' },
+  { label: 'Wishlist', icon: '../src/assets/Heart.svg', path: '/profile/wishlist' },
+  { label: 'Address', icon: '../src/assets/Delivery.svg', path: '/profile/address' },
   { label: 'Password', icon: '../src/assets/Key.svg', path: '/password' },
-  { label: 'Account Detail', icon: '../src/assets/User.svg', path: '/account' },
-  { label: 'Logout', icon: '../src/assets/Logout.svg', path: '/logout' },
+  { label: 'Account Detail', icon: '../src/assets/User.svg', path: '/profile/YourDetails' },
+  { label: 'Logout', icon: '../src/assets/Logout.svg', path: '' },
 ];
 
 // CSS-in-JS styles for the sidebar
