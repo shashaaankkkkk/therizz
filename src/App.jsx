@@ -91,9 +91,8 @@ const App = () => {
         {/* Profile vale sare system yaha se dalne hai */}
        
         <Route path="/profile" element={<CustomerProfileLayout />}>
-          <Route path="product" element={<OrderHistoryTableContainer />} />
-          <Route path="ad" element={<AddressPage />} />
-          
+          <Route path="orders" element={<OrderHistoryTableContainer />} />
+          <Route path="address" element={<AddressPage />} />
           <Route path="wishlist" element={<Wishlist />} />
         </Route>
           
