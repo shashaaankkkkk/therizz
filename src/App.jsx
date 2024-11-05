@@ -34,6 +34,8 @@ import CustomerProfileLayout from "./components/User/custProfileLayout";
 import OrderHistoryTableContainer from "./components/User/CustOrders";
 import AddressPage from "./components/User/Address";
 import Wishlist from "./components/User/Wishlist";
+import AccountDetails from "./components/User/AccountDetails";
+import EmptyOrderHistory from "./components/User/EmptyOrders";
 
 // Protected Route wrapper for admin routes
 const ProtectedRoute = ({ children }) => {
@@ -94,6 +96,9 @@ const App = () => {
           <Route path="orders" element={<OrderHistoryTableContainer />} />
           <Route path="address" element={<AddressPage />} />
           <Route path="wishlist" element={<Wishlist />} />
+          <Route path="Your Details" element={<AccountDetails />} />
+          <Route path="empty orders" element={<EmptyOrderHistory/>} />
+          
         </Route>
           
         
