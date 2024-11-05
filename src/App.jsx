@@ -19,7 +19,6 @@ import CustomersPage from "./components/Admin/Customers";
 import ReviewsPage from "./components/Admin/Reviews";
 import HomePage from "./components/User/HomePage";
 import UserDashboardLayout from "./components/User/UserDashboardLayout";
-import ProductGrid from "./components/User/BestSelling";
 import CartPage from "./components/pages/CartPage";
 import ProductDetail from "./components/User/ProductDetail";
 import Listing from "./components/User/Listing";
@@ -29,8 +28,10 @@ import UserSignup from "./components/User/Authentication/UserSignIn";
 import OrderSuccess from "./components/User/PaymentDone";
 import ForgotPassword from "./components/User/Authentication/UserForgotPassword";
 import ResetPassword from "./components/User/Authentication/ResetPassword";
-import OrderFail from "./components/User/PaymentFail";
-import CustomerProfileLayout from "./components/User/CustProfileLayout";
+// import OrderFail from "./components/User/PaymentFail";
+import CustomerProfileLayout from "./components/User/custProfileLayout";
+// import OrderSimpleTableExample from "./components/User/CustOrders";
+import OrderHistoryTableContainer from "./components/User/CustOrders";
 
 // Protected Route wrapper for admin routes
 const ProtectedRoute = ({ children }) => {
@@ -87,7 +88,10 @@ const App = () => {
         </Route>
 
         {/* Profile vale sare system yaha se dalne hai */}
-        <Route path="/profile" element={<CustomerProfileLayout />}></Route>
+        <Route path="/profile" element={<CustomerProfileLayout />}>
+        <Route path="co" element={<OrderHistoryTableContainer/>} />
+         
+        </Route>
 
         {/* Catch all undefined routes - redirect to login */}
         <Route path="*" element={<Navigate to="/login" replace />} />
