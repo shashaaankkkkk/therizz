@@ -32,11 +32,9 @@ import OrderHistoryTableContainer from "./components/User/CustOrders";
 import AddressPage from "./components/User/Address";
 import Wishlist from "./components/User/Wishlist";
 import AccountDetails from "./components/User/AccountDetails";
-
 import PasswordChangePage from "./components/User/Password";
 import EmptyOrderHistory from "./components/User/EmptyOrders";
 import NotFoundPage from "./components/Error404";
-
 
 // Protected Route wrapper for admin routes
 const ProtectedRoute = ({ children }) => {
@@ -94,15 +92,11 @@ const App = () => {
         {/* Profile Routes */}
         <Route path="/profile" element={<CustomerProfileLayout />}>
           <Route path="orders" element={<OrderHistoryTableContainer />} />
-          <Route path="address" element={<AddressPage />} />
           <Route path="wishlist" element={<Wishlist />} />
-
-          <Route path="account" element={<AccountDetails />} />
+          <Route path="address" element={<AddressPage />} />
           <Route path="password" element={<PasswordChangePage />} />
-
-          <Route path="Your Details" element={<AccountDetails />} />
+          <Route path="account details" element={<AccountDetails />} />
           <Route path="empty orders" element={<EmptyOrderHistory />} />
-
         </Route>
 
         {/* Catch all undefined routes - show NotFoundPage */}

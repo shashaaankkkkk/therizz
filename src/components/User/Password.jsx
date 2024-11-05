@@ -1,3 +1,5 @@
+import React from "react";
+
 const PasswordChange = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -6,10 +8,9 @@ const PasswordChange = () => {
   };
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-white text-black">
-      <div className="w-full max-w-md p-8">
+    <div className="flex items-start justify-center bg-white p-6 min-h-screen">
+      <div className="bg-white rounded-2xl w-full max-w-md p-10 border border-gray-200 mt-20 ml-20">
         <h1 className="text-4xl font-bold mb-6 text-center">Change Password</h1>
-
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label
@@ -27,7 +28,6 @@ const PasswordChange = () => {
               required
             />
           </div>
-
           <div>
             <label
               htmlFor="confirmPassword"
@@ -44,7 +44,6 @@ const PasswordChange = () => {
               required
             />
           </div>
-
           <button
             type="submit"
             className="w-full bg-black text-white py-3 rounded hover:bg-gray-800 transition duration-200"

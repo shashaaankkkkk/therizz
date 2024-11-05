@@ -2,6 +2,7 @@ import React from "react";
 import bannerImage from "../../assets/banner.jpg";
 import ProductGrid from "./BestSelling";
 import BrowseProduct from "./BrowseProduct";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   return (
@@ -18,7 +19,6 @@ const HomePage = () => {
 
         {/* Banner Content */}
         <div className="relative z-10 flex items-center justify-start h-full pl-32 text-white">
-          {" "}
           {/* Increased padding-left for more right shift */}
           <div className="max-w-md space-y-6">
             <h1 className="text-4xl md:text-5xl font-bold leading-tight">
@@ -27,9 +27,11 @@ const HomePage = () => {
             <p className="text-lg md:text-xl font-light">
               Discover Our Newest Collection Today.
             </p>
-            <button className="mt-4 px-6 py-3 bg-gray-800 text-white text-lg rounded-full hover:bg-gray-700 focus:outline-none transition">
-              View Collection →
-            </button>
+            <Link to="/user/listing">
+              <button className="mt-4 px-6 py-3 bg-gray-800 text-white text-lg rounded-full hover:bg-gray-700 focus:outline-none transition">
+                View Collection →
+              </button>
+            </Link>
           </div>
         </div>
       </div>

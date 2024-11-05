@@ -61,8 +61,22 @@ const Footer = () => {
         <div style={styles.section}>
           <h4 style={styles.heading}>Shop</h4>
           <ul style={styles.list}>
-            <li style={styles.listItem}>My Account</li>
-            <li style={styles.listItem}>Checkout</li>
+            <li style={styles.listItem}>
+              <Link
+                to="/profile/account%20details"
+                style={{ color: "#666", textDecoration: "none" }}
+              >
+                My Account
+              </Link>
+            </li>
+            <li style={styles.listItem}>
+              <Link
+                to="/profile/orders"
+                style={{ color: "#666", textDecoration: "none" }}
+              >
+                Checkout
+              </Link>
+            </li>
             <li style={styles.listItem}>
               <Link
                 to="/user/cart"
