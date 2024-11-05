@@ -1,72 +1,60 @@
-// Password.jsx
-
-import React from "react";
-
 const PasswordChange = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle password change logic here
+    console.log("Password change submitted");
+  };
+
   return (
-    <div style={styles.container}>
-      <h1 style={styles.heading}>Change Password</h1>
-      <div style={styles.inputGroup}>
-        <h2 style={styles.subHeading}>New Password</h2>
-        <input
-          type="password"
-          placeholder="Enter new password"
-          style={styles.input}
-        />
+    <div className="min-h-screen w-full flex items-center justify-center bg-white text-black">
+      <div className="w-full max-w-md p-8">
+        <h1 className="text-4xl font-bold mb-6 text-center">Change Password</h1>
+
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
+            <label
+              htmlFor="newPassword"
+              className="block text-lg font-medium mb-2"
+            >
+              New Password
+            </label>
+            <input
+              type="password"
+              id="newPassword"
+              name="newPassword"
+              className="w-full p-4 bg-gray-200 border border-gray-400 rounded focus:outline-none focus:border-black transition duration-200"
+              placeholder="Enter new password"
+              required
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="confirmPassword"
+              className="block text-lg font-medium mb-2"
+            >
+              Confirm Password
+            </label>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              className="w-full p-4 bg-gray-200 border border-gray-400 rounded focus:outline-none focus:border-black transition duration-200"
+              placeholder="Confirm new password"
+              required
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full bg-black text-white py-3 rounded hover:bg-gray-800 transition duration-200"
+          >
+            Change Password
+          </button>
+        </form>
       </div>
-      <div style={styles.inputGroup}>
-        <h2 style={styles.subHeading}>Confirm Password</h2>
-        <input
-          type="password"
-          placeholder="Confirm new password"
-          style={styles.input}
-        />
-      </div>
-      <button style={styles.button}>Change Password</button>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    height: "100vh",
-    backgroundColor: "#fff",
-    color: "#000",
-    padding: "20px",
-    fontFamily: "Arial, sans-serif",
-  },
-  heading: {
-    fontSize: "2.5em",
-    marginBottom: "20px",
-  },
-  subHeading: {
-    fontSize: "1.5em",
-    marginBottom: "10px",
-  },
-  inputGroup: {
-    width: "300px",
-    marginBottom: "20px",
-  },
-  input: {
-    width: "100%",
-    padding: "10px",
-    borderRadius: "5px",
-    border: "1px solid #000",
-    fontSize: "1em",
-  },
-  button: {
-    padding: "10px 20px",
-    borderRadius: "5px",
-    border: "none",
-    backgroundColor: "#000",
-    color: "#fff",
-    fontSize: "1em",
-    cursor: "pointer",
-  },
 };
 
 export default PasswordChange;
