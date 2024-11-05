@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { Outlet, Link } from "react-router-dom";
-import { FaShoppingCart, FaUserCircle, FaSearch, FaBars, FaTimes } from "react-icons/fa";
+import {
+  FaShoppingCart,
+  FaUserCircle,
+  FaSearch,
+  FaBars,
+  FaTimes,
+} from "react-icons/fa";
 import icons from "../../utils/utils";
 import Footer from "../User/Footer.jsx";
 import Sidebar2 from "./SideBarCust.jsx";
@@ -32,23 +38,62 @@ const CustomerProfileLayout = () => {
 
           <div className="hidden md:flex flex-grow justify-center mx-4">
             <ul className="flex space-x-8">
-              <li><Link to="/user/homepage" className="text-gray-800 hover:text-blue-600">Home</Link></li>
-              <li><Link to="/user/categories" className="text-gray-800 hover:text-blue-600">Categories <span className="ml-1">&#x25BE;</span></Link></li>
-              <li><Link to="/user/about" className="text-gray-800 hover:text-blue-600">About</Link></li>
-              <li><Link to="/user/contact" className="text-gray-800 hover:text-blue-600">Contact</Link></li>
+              <li>
+                <Link
+                  to="/user/homepage"
+                  className="text-gray-800 hover:text-blue-600"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/user/categories"
+                  className="text-gray-800 hover:text-blue-600"
+                >
+                  Categories <span className="ml-1">&#x25BE;</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/user/about"
+                  className="text-gray-800 hover:text-blue-600"
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/user/contact"
+                  className="text-gray-800 hover:text-blue-600"
+                >
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
 
           <div className="hidden md:flex items-center space-x-6">
             <div className="relative">
               <FaSearch className="absolute left-3 top-3 text-gray-500" />
-              <input type="text" placeholder="Search products" className="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" />
+              <input
+                type="text"
+                placeholder="Search products"
+                className="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+              />
             </div>
-            <FaShoppingCart className="text-2xl text-gray-800 hover:text-blue-600 cursor-pointer" />
-            <FaUserCircle className="text-2xl text-gray-800 hover:text-blue-600 cursor-pointer" />
+            <Link to="/user/cart">
+              <FaShoppingCart className="text-2xl text-gray-800 hover:text-blue-600 cursor-pointer" />
+            </Link>
+            <Link to="/profile/account details">
+              <FaUserCircle className="text-2xl text-gray-800 hover:text-blue-600 cursor-pointer" />
+            </Link>
           </div>
 
-          <button className="md:hidden text-gray-800 focus:outline-none" onClick={toggleMobileMenu}>
+          <button
+            className="md:hidden text-gray-800 focus:outline-none"
+            onClick={toggleMobileMenu}
+          >
             {isMobileMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
           </button>
         </nav>
@@ -59,10 +104,38 @@ const CustomerProfileLayout = () => {
             <div className="flex justify-start p-4">
               <FaUserCircle className="text-3xl text-gray-800 hover:text-blue-600 cursor-pointer" />
             </div>
-            <li><Link to="/user/homepage" className="block px-4 py-2 text-gray-800 hover:text-blue-600">Home</Link></li>
-            <li><Link to="/user/categories" className="block px-4 py-2 text-gray-800 hover:text-blue-600">Categories <span className="ml-1">&#x25BE;</span></Link></li>
-            <li><Link to="/user/about" className="block px-4 py-2 text-gray-800 hover:text-blue-600">About</Link></li>
-            <li><Link to="/user/contact" className="block px-4 py-2 text-gray-800 hover:text-blue-600">Contact</Link></li>
+            <li>
+              <Link
+                to="/user/homepage"
+                className="block px-4 py-2 text-gray-800 hover:text-blue-600"
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/user/categories"
+                className="block px-4 py-2 text-gray-800 hover:text-blue-600"
+              >
+                Categories <span className="ml-1">&#x25BE;</span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/user/about"
+                className="block px-4 py-2 text-gray-800 hover:text-blue-600"
+              >
+                About
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/user/contact"
+                className="block px-4 py-2 text-gray-800 hover:text-blue-600"
+              >
+                Contact
+              </Link>
+            </li>
           </ul>
         </div>
       </header>

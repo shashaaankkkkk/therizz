@@ -87,10 +87,14 @@ function UserHeader() {
           </div>
 
           {/* Cart Icon */}
-          <FaShoppingCart className="text-2xl text-gray-800 hover:text-blue-600 cursor-pointer" />
+          <Link to="/user/cart">
+            <FaShoppingCart className="text-2xl text-gray-800 hover:text-blue-600 cursor-pointer" />
+          </Link>
 
-          {/* Profile Icon */}
-          <FaUserCircle className="text-2xl text-gray-800 hover:text-blue-600 cursor-pointer" />
+          {/* Profile Icon with Link */}
+          <Link to="/profile/account details">
+            <FaUserCircle className="text-2xl text-gray-800 hover:text-blue-600 cursor-pointer" />
+          </Link>
         </div>
 
         {/* Hamburger Icon for Mobile Menu */}
@@ -147,7 +151,6 @@ function UserHeader() {
       </div>
 
       {/* Outlet for nested routes */}
-
     </header>
   );
 }

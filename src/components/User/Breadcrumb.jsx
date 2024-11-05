@@ -55,7 +55,7 @@ const Breadcrumb = ({ thick = false }) => {
       } else if (name === "user") {
         breadcrumbs.push({
           label: "THE RIZZ",
-          path: currentPath,
+          path: "/user/homepage",
           isLast: index === pathnames.length - 1,
         });
       }

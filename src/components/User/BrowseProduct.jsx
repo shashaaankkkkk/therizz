@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import icons from "../../utils/utils";
 
 const BrowseProduct = () => {
@@ -90,9 +91,11 @@ const BrowseProduct = () => {
                 Step into a world of style and explore our diverse collection of
                 clothing categories.
               </p>
-              <button className="mt-6 rounded-md bg-gray-900 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 sm:text-base">
-                Start Browsing
-              </button>
+              <Link to="/user/listing">
+                <button className="mt-6 rounded-md bg-gray-900 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 sm:text-base">
+                  Start Browsing
+                </button>
+              </Link>
             </div>
             <div className="relative flex justify-center lg:justify-end">
               <img
