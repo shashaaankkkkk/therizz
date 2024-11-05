@@ -32,6 +32,7 @@ import ResetPassword from "./components/User/Authentication/ResetPassword";
 import CustomerProfileLayout from "./components/User/custProfileLayout";
 // import OrderSimpleTableExample from "./components/User/CustOrders";
 import OrderHistoryTableContainer from "./components/User/CustOrders";
+import AddressPage from "./components/User/Address";
 
 // Protected Route wrapper for admin routes
 const ProtectedRoute = ({ children }) => {
@@ -89,7 +90,9 @@ const App = () => {
 
         {/* Profile vale sare system yaha se dalne hai */}
         <Route path="/profile" element={<CustomerProfileLayout />}>
-          <Route path="wo" element={<ProductsPage />} />
+          <Route path="wo" element={<OrderHistoryTableContainer />} />
+          <Route path="ad" element={<AddressPage />} />
+          
         </Route>
 
         {/* Catch all undefined routes - redirect to login */}
