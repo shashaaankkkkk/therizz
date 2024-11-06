@@ -29,6 +29,21 @@ const ProductDetail = () => {
     ],
   };
 
+
+  const prod=[[
+    {
+        "id": 1,
+        "name": "somehting",
+        "description": "sadfasdfa",
+        "price": "1212.00",
+        "stock": 12,
+        "size": "XL",
+        "discount": "111.00",
+        "category": 1,
+        "cover_photo": "http://127.0.0.1:8000/products/covers/Screenshot_2024-11-05_at_4.28.05PM.png",
+        "photo_gallery": "http://127.0.0.1:8000/products/gallery/Screenshot_2024-11-05_at_4.28.05PM.png"
+    }
+]]
   const handleAddToWishlist = () => {
     setIsWishlisted(!isWishlisted);
   };
