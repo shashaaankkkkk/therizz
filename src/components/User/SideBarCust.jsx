@@ -47,17 +47,17 @@ const sidebarItems = [
   {
     label: "Password",
     icon: "../src/assets/Key.svg",
-    path: "/profile/password",
+    path: "/profile/change-password",
   },
   {
     label: "Account Detail",
     icon: "../src/assets/User.svg",
-    path: "/profile/account details",
+    path: "/profile/account",
   },
   {
     label: "Logout",
     icon: "../src/assets/Logout.svg",
-    path: "/user/ulogin",
+    path: "/user/login",
   },
 ];
 

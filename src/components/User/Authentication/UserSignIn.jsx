@@ -26,7 +26,7 @@ const UserSignup = () => {
   };
 
   const goToLogin = () => {
-    navigate("/user/ulogin");
+    navigate("/user/login");
   };
 
   return (

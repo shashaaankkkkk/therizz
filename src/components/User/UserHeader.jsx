@@ -97,7 +97,7 @@ function UserHeader() {
           </Link>
 
           {/* Profile Icon with Link */}
-          <Link to="/profile/account details">
+          <Link to="/profile/account">
             <AiOutlineUser className="text-2xl text-gray-800 hover:text-blue-600 cursor-pointer" />
           </Link>
         </div>

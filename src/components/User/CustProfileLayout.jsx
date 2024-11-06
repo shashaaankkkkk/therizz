@@ -7,6 +7,9 @@ import {
   FaBars,
   FaTimes,
 } from "react-icons/fa";
+import { FiShoppingBag, FiShoppingCart } from "react-icons/fi";
+import { AiOutlineUser } from "react-icons/ai";
+import { PiShoppingCartSimpleDuotone } from "react-icons/pi";
 import icons from "../../utils/utils";
 import Footer from "../User/Footer.jsx";
 import Sidebar2 from "./SideBarCust.jsx";
@@ -40,7 +43,7 @@ const CustomerProfileLayout = () => {
             <ul className="flex space-x-8">
               <li>
                 <Link
-                  to="/user/homepage"
+                  to="/user/home"
                   className="text-gray-800 hover:text-blue-600"
                 >
                   Home
@@ -83,10 +86,10 @@ const CustomerProfileLayout = () => {
               />
             </div>
             <Link to="/user/cart">
-              <FaShoppingCart className="text-2xl text-gray-800 hover:text-blue-600 cursor-pointer" />
+              <FiShoppingBag className="text-2xl text-gray-800 hover:text-blue-600 cursor-pointer" />
             </Link>
-            <Link to="/profile/account details">
-              <FaUserCircle className="text-2xl text-gray-800 hover:text-blue-600 cursor-pointer" />
+            <Link to="/profile/account">
+              <AiOutlineUser className="text-2xl text-gray-800 hover:text-blue-600 cursor-pointer" />
             </Link>
           </div>
 
@@ -106,7 +109,7 @@ const CustomerProfileLayout = () => {
             </div>
             <li>
               <Link
-                to="/user/homepage"
+                to="/user/home"
                 className="block px-4 py-2 text-gray-800 hover:text-blue-600"
               >
                 Home
