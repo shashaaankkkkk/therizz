@@ -21,85 +21,85 @@ const Listing = () => {
 
 
 
-async function fetchProducts() {
-  try {
-    const response = await axios.get('/api/products/');
-    const products = response.data.map(item => ({
-      id: item.id,
-      name: item.name,
-      description: item.description,
-      price: parseFloat(item.price),
-      stock: item.stock,
-      size: item.size,
-      discount: parseFloat(item.discount),
-      category: item.category,
-      coverPhoto: item.cover_photo,
-      photoGallery: item.photo_gallery,
-      inStock: item.stock > 0,
-    }));
+// async function fetchProducts() {
+//   try {
+//     const response = await axios.get('/api/products/');
+//     const products = response.data.map(item => ({
+//       id: item.id,
+//       name: item.name,
+//       description: item.description,
+//       price: parseFloat(item.price),
+//       stock: item.stock,
+//       size: item.size,
+//       discount: parseFloat(item.discount),
+//       category: item.category,
+//       coverPhoto: item.cover_photo,
+//       photoGallery: item.photo_gallery,
+//       inStock: item.stock > 0,
+//     }));
 
-    console.log(products);
-    return products;
-  } catch (error) {
-    console.error('Error fetching products:', error);
-  }
-}
+//     console.log(products);
+//     return products;
+//   } catch (error) {
+//     console.error('Error fetching products:', error);
+//   }
+// }
 
-fetchProducts();
+// fetchProducts();
   const colors = ["#3b82f6", "#facc15", "#4ade80", "#a78bfa"];
   const sizes = ["S", "M", "L", "XL", "XXL"];
 
-  // const products = [
-  //   {
-  //     id: 1,
-  //     name: "Classic Monochrome Tee",
-  //     price: 35,
-  //     imageUrl: icons.image2,
-  //     inStock: true,
-  //     category: "Tshirt",
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "Casual Denim Jeans",
-  //     price: 45,
-  //     imageUrl: icons.image3,
-  //     inStock: true,
-  //     category: "Jeans",
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "Stylish Hoodie",
-  //     price: 60,
-  //     imageUrl: icons.image4,
-  //     inStock: true,
-  //     category: "Hoodies",
-  //   },
-  //   {
-  //     id: 4,
-  //     name: "Formal Shirt",
-  //     price: 40,
-  //     imageUrl: icons.image5,
-  //     inStock: false,
-  //     category: "Shirts",
-  //   },
-  //   {
-  //     id: 5,
-  //     name: "Comfortable Cargos",
-  //     price: 55,
-  //     imageUrl: icons.image6,
-  //     inStock: true,
-  //     category: "Cargos",
-  //   },
-  //   {
-  //     id: 6,
-  //     name: "Trendy Pants",
-  //     price: 50,
-  //     imageUrl: icons.image7,
-  //     inStock: true,
-  //     category: "Pants",
-  //   },
-  //   // Add more products as needed
-  // ];
+  const products = [
+    {
+      id: 1,
+      name: "Classic Monochrome Tee",
+      price: 35,
+      imageUrl: icons.image2,
+      inStock: true,
+      category: "Tshirt",
+    },
+    {
+      id: 2,
+      name: "Casual Denim Jeans",
+      price: 45,
+      imageUrl: icons.image3,
+      inStock: true,
+      category: "Jeans",
+    },
+    {
+      id: 3,
+      name: "Stylish Hoodie",
+      price: 60,
+      imageUrl: icons.image4,
+      inStock: true,
+      category: "Hoodies",
+    },
+    {
+      id: 4,
+      name: "Formal Shirt",
+      price: 40,
+      imageUrl: icons.image5,
+      inStock: false,
+      category: "Shirts",
+    },
+    {
+      id: 5,
+      name: "Comfortable Cargos",
+      price: 55,
+      imageUrl: icons.image6,
+      inStock: true,
+      category: "Cargos",
+    },
+    {
+      id: 6,
+      name: "Trendy Pants",
+      price: 50,
+      imageUrl: icons.image7,
+      inStock: true,
+      category: "Pants",
+    },
+    // Add more products as needed
+  ];
 
   const handleCategorySelect = (category) => {
     setSelectedCategory((prevCategories) =>
