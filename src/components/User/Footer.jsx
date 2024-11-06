@@ -53,7 +53,12 @@ const Footer = () => {
         <div style={styles.section}>
           <h4 style={styles.heading}>Company</h4>
           <ul style={styles.list}>
-            <li style={styles.listItem}>About us</li>
+            <Link
+              to="/user/about"
+              style={{ color: "#666", textDecoration: "none" }}
+            >
+              About Us
+            </Link>
             <li style={styles.listItem}>Contact</li>
             <li style={styles.listItem}>Careers</li>
           </ul>

@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 
 // Admin Components
 import DashboardLayout from "./components/Admin/DashboardLayout";
@@ -26,6 +31,7 @@ import UserSignup from "./components/User/Authentication/UserSignIn";
 import OrderSuccess from "./components/User/PaymentDone";
 import ForgotPassword from "./components/User/Authentication/UserForgotPassword";
 import ResetPassword from "./components/User/Authentication/ResetPassword";
+import About1 from "./components/User/About";
 
 // User Profile Components
 import CustomerProfileLayout from "./components/User/CustProfileLayout";
@@ -89,6 +95,7 @@ const App = () => {
           <Route path="forgot-password" element={<ForgotPassword />} />
           <Route path="reset-password" element={<ResetPassword />} />
           <Route path="order-success" element={<OrderSuccess />} />
+          <Route path="about" element={<About1 />} />
         </Route>
 
         {/* User Profile Routes */}

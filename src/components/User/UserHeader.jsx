@@ -122,7 +122,7 @@ function UserHeader() {
           {/* Navigation Links */}
           <li>
             <Link
-              to="/user/homepage"
+              to="/user/home"
               className="block px-4 py-2 text-gray-800 hover:text-blue-600"
             >
               Home
