@@ -7,8 +7,13 @@ import {
   FaBars,
   FaTimes,
 } from "react-icons/fa";
-import icons from "../../utils/utils";
+import { FiShoppingBag, FiShoppingCart } from "react-icons/fi";
 
+import { AiOutlineUser } from "react-icons/ai";
+
+import icons from "../../utils/utils";
+import { PiShoppingCartSimpleDuotone } from "react-icons/pi";
+import { FishOff } from "lucide-react";
 function UserHeader() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -88,12 +93,12 @@ function UserHeader() {
 
           {/* Cart Icon */}
           <Link to="/user/cart">
-            <FaShoppingCart className="text-2xl text-gray-800 hover:text-blue-600 cursor-pointer" />
+            <FiShoppingBag className="text-2xl text-gray-800 hover:text-blue-600 cursor-pointer" />
           </Link>
 
           {/* Profile Icon with Link */}
           <Link to="/profile/account details">
-            <FaUserCircle className="text-2xl text-gray-800 hover:text-blue-600 cursor-pointer" />
+            <AiOutlineUser className="text-2xl text-gray-800 hover:text-blue-600 cursor-pointer" />
           </Link>
         </div>
 
