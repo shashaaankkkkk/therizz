@@ -28,7 +28,7 @@ function UserHeader() {
         {/* Logo */}
         <div className="flex items-center ml-[90px]">
           <img src={icons.Logo} alt="Logo" className="w-10 h-10 mr-2" />
-          <span className="text-xl font-semibold">Ecommerce</span>
+          <span className="text-xl font-semibold">THE RIZZ</span>
         </div>
 
         {/* Search Bar */}
