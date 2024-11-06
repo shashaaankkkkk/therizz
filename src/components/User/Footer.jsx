@@ -63,7 +63,7 @@ const Footer = () => {
           <ul style={styles.list}>
             <li style={styles.listItem}>
               <Link
-                to="/profile/account%20details"
+                to="/profile/account"
                 style={{ color: "#666", textDecoration: "none" }}
               >
                 My Account
