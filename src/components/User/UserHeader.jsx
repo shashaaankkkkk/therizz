@@ -46,7 +46,7 @@ function UserHeader() {
           <ul className="flex space-x-8">
             <li>
               <Link
-                to="/user/homepage"
+                to="/user/home"
                 className="text-gray-800 hover:text-blue-600"
               >
                 Home
